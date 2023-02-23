@@ -11,10 +11,10 @@ import {
   } from '@chakra-ui/react';
   import {Link as RouterLink} from "react-router-dom"
 
-  export default function ProductCard({image,id,price,ram,price2,brand,description}) { 
+  export default function KidsCard({image,id,price,price2,brand,details}) { 
     return (
       <Center py={12}>
-        <RouterLink  to={`/laptop/${id}`} >
+        <RouterLink  to={`/kids/${id}`} >
         
         <Box
           role={'group'}
@@ -52,22 +52,20 @@ import {
             }}>
             <Image
               rounded={'lg'}
-              height={230}
-              width={282}
-              objectFit={'cover'}
+              height={"100%"}
+              width={"100%"}
+              
               src={image}
             />
           </Box>
-          <div style={{background:"#eff0af"}} >
+          <div style={{background:"white"}} >
           <Stack pt={10} align={'center'}>
             <Text noOfLines={3} textDecoration={'none'} color={'black'} fontSize={'sm'} textTransform={'uppercase'}>
               {brand}
             </Text>
+          
             <Text noOfLines={3} textDecoration={'none'} color={'black'} fontSize={'sm'} textTransform={'uppercase'}>
-              {ram}
-            </Text>
-            <Text noOfLines={3} textDecoration={'none'} color={'black'} fontSize={'sm'} textTransform={'uppercase'}>
-              {description}
+              {details}
             </Text>
        
             <Stack direction={'row'} align={'center'}>
