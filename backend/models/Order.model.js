@@ -13,7 +13,8 @@ const OrderSchema = mongoose.Schema(
     totalPrice: { type: Number },
     product: [],
     userID: { type: mongoose.Schema.ObjectId, ref: "user" },
-    time:{type:String ,default:str}
+    time:{type:String ,default:str},
+    status:{type:String}
    
   },
   { versionKey: false }
