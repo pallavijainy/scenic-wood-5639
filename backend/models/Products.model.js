@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const ProductSchema = mongoose.Schema(
   {
+    active:{type:Boolean},
+    order_status:{type:String},
     id: { type: Number },
     image: { type: String },
     brand: { type: String },

@@ -63,4 +63,42 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
+//update
+userRouter.patch("/update/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await userModel.findByIdAndUpdate({ _id: id }, req.body);
+    res.send("user data updated");
+  } catch (error) {
+    res.send({ msg: "something went wrong", error: error.message });
+  }
+});
+
+//delete
+
+userRouter.delete("/delete/:id",async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await userModel.findByIdAndDelete({ _id: id });
+    res.send("user deleted successfully");
+  } catch (error) {
+    res.send({ msg: "something went wrong", error: error.message });
+  }
+});
+
+//get
+userRouter.get("/", async(req,res)=>{
+try {
+  const data =await userModel.find()
+res.send(data)
+} catch (error) {
+  res.send(error)
+}
+});
+
+
+
+
 module.exports = { userRouter };

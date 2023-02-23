@@ -42,7 +42,7 @@ ProductRouter.get("/", async (req, res) => {
   }
 });
 
-ProductRouter.post("/add",Authenticate, async (req, res) => {
+ProductRouter.post("/add", async (req, res) => {
   try {
     const data = new ProductModel(req.body);
     await data.save();
@@ -52,7 +52,7 @@ ProductRouter.post("/add",Authenticate, async (req, res) => {
   }
 });
 //update
-ProductRouter.patch("/update/:id",Authenticate, async (req, res) => {
+ProductRouter.patch("/update/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -65,7 +65,7 @@ ProductRouter.patch("/update/:id",Authenticate, async (req, res) => {
 
 //delete
 
-ProductRouter.delete("/delete/:id",Authenticate, async (req, res) => {
+ProductRouter.delete("/delete/:id",async (req, res) => {
   const id = req.params.id;
 
   try {
