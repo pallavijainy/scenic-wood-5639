@@ -3,12 +3,12 @@ import axios from "axios"
 import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-
-
+import ProductCard from "./ProductCard"
+import SideBar from "./Sidebar"
 import Pagination from "./Pagination"
-import MensCard from "./Menscard"
+import KidsCard from "./KidsCard"
 
-const Mens=()=>{
+const Kids=()=>{
 const [data,setData] = useState([])
 const[page,setPage] = useState(1)
 const[asortdata,setAsortdata]=useState([])
@@ -17,7 +17,7 @@ const[dsortdata,setDsortdata]=useState([])
 
 
 useEffect(()=>{
-    axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&page=${page}&limit=16`).then((res)=>{
+    axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&page=${page}&limit=16`).then((res)=>{
         console.log(res.data)
         setData(res.data)
         
@@ -28,13 +28,13 @@ useEffect(()=>{
 // -------------------------------------------
 const  DescData=async(page)=>{
                
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=dsc&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=dsc&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
 }
   const  AscData=async(page)=>{
    
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=asc&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=asc&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
 }
@@ -51,42 +51,42 @@ function HandleChange(e){
 
   const  sandle=async(page)=>{
            
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Sandles&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=Sandles&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
     console.log(data);
 }
   const  boots=async(page)=>{
            
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Boots&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=Boots&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
     console.log(data);
 }
   const  oxford=async(page)=>{
            
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=LoafersAndOxfords&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=LoafersAndOxfords&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
     console.log(data);
 }
   const  nike=async(page)=>{
            
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=nike&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=nike&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
     console.log(data);
 }
   const  vans=async(page)=>{
            
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=vans&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=vans&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
     console.log(data);
 }
   const  crocs=async(page)=>{
            
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=crocs&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=crocs&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
     console.log(data);
@@ -104,10 +104,10 @@ function HandleChange(e){
 
     <Box w='20%' border='1px solid red' >
 <Heading color="gray" >
-    Men's Shoes
+    Kids Shoes
 </Heading>
 <Text>
-    Shoes/Man
+    Shoes/Kids
 </Text>
 
 <Select  onChange={HandleChange} 
@@ -215,7 +215,7 @@ function HandleChange(e){
 return (
 <GridItem key={e.id} >
     {/* mapping in card */}
-<MensCard
+<KidsCard
 
 image={e.image}
 id={e._id}
@@ -244,4 +244,4 @@ price={e.price}
 
     )
 }
-export default Mens
+export default Kids
