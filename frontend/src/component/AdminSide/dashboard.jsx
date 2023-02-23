@@ -1,77 +1,43 @@
 import { Box, Button, Heading, SimpleGrid, Text } from "@chakra-ui/react";
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from "chart.js";
-// import { Bar } from "react-chartjs-2";
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend
-// );
-// export const options = {
-//   responsive: true,
-//   plugins: {
-//     legend: {
-//       position: "left",
-//     },
-//     title: {
-//       display: true,
-//       text: "Order Details",
-//     },
-//   },
-// };
-// const labels = ["January", "February", "March", "April", "May", "June", "July"];
-// export const data = {
-//   labels,
-//   datasets: [
-//     {
-//       label: "Orders",
-//       data: [10, 20, 50, 10, 45, 35, 21],
-//       backgroundColor: "#00b5b8",
-//     },
-//   ],
-// };
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Dashboard = () => {
-  const [wheyData, setWheyData] = useState([]);
-  const [Equipment, setEquipment] = useState([]);
-  const [Ayurvedic, setAyurvedic] = useState([]);
-  const [Juice, setJuice] = useState([]);
-  const [food, setFood] = useState([]);
-  const [gainer, setGainers] = useState([]);
+  const [mensData, setMensData] = useState([]);
+  const [womensData, setWomensData] = useState([]);
+  const [kidsData, setKidsData] = useState([]);
+  const [bootsData, setBootsData] = useState([]);
+  const [sandlesData, setSandlesData] = useState([]);
+  const [loafersData, setLoafersData] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`dummyData/WheyProtien`)
-  //     .then((res) => setWheyData(res.data));
-  //   axios
-  //     .get(`dummyData/Equipments`)
-  //     .then((res) => setEquipment(res.data));
-  //   axios
-  //     .get(`dummyData/Ayurvedic`)
-  //     .then((res) => setAyurvedic(res.data));
-  //   axios
-  //     .get(`dummyData/Healthy_Juice`)
-  //     .then((res) => setJuice(res.data));
-  //   axios
-  //     .get(`dummyData/Protien-Foods`)
-  //     .then((res) => setFood(res.data));
-  //   axios
-  //     .get(`dummyData/Gainers`)
-  //     .then((res) => setGainers(res.data));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens`)
+      .then((res) => setMensData(res.data));
+    axios
+      .get(
+        `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens`
+      )
+      .then((res) => setWomensData(res.data));
+    axios
+      .get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids`)
+      .then((res) => setKidsData(res.data));
+    axios
+      .get(
+        `https://good-rose-kingfisher-tam.cyclic.app/product?sub_category=Boots`
+      )
+      .then((res) => setBootsData(res.data));
+    axios
+      .get(
+        `https://good-rose-kingfisher-tam.cyclic.app/product?sub_category=Sandles`
+      )
+      .then((res) => setSandlesData(res.data));
+    axios
+      .get(
+        `https://good-rose-kingfisher-tam.cyclic.app/product?sub_category=LoafersAndOxfords`
+      )
+      .then((res) => setLoafersData(res.data));
+  }, []);
   return (
     <Box
       color={"white"}
@@ -98,7 +64,7 @@ const Dashboard = () => {
           ml={"40px"}
         >
           <Heading color={"yellow"} fontSize={"100px"}>
-            {/* {wheyData?.length} */}
+            {mensData?.length}
           </Heading>
           <Text fontSize={"20px"}>Active Listings</Text>
           <Text color={"#00b5b8"} fontSize={"30px"}>
@@ -114,7 +80,7 @@ const Dashboard = () => {
           ml={"40px"}
         >
           <Heading color={"yellow"} fontSize={"100px"}>
-            {/* {Ayurvedic?.length} */}
+            {kidsData?.length}
           </Heading>
           <Text fontSize={"20px"}>Active Listings</Text>
           <Text color={"#00b5b8"} fontSize={"30px"}>
@@ -130,7 +96,7 @@ const Dashboard = () => {
           ml={"40px"}
         >
           <Heading color={"yellow"} fontSize={"100px"}>
-            {/* {Equipment?.length} */}
+            {womensData?.length}
           </Heading>
           <Text fontSize={"20px"}>Active Listings</Text>
           <Text color={"#00b5b8"} fontSize={"30px"}>
@@ -146,7 +112,7 @@ const Dashboard = () => {
           ml={"40px"}
         >
           <Heading color={"yellow"} fontSize={"100px"}>
-            {/* {food?.length} */}
+            {sandlesData?.length}
           </Heading>
           <Text fontSize={"20px"}>Active Listings</Text>
           <Text color={"#00b5b8"} fontSize={"30px"}>
@@ -162,7 +128,7 @@ const Dashboard = () => {
           ml={"40px"}
         >
           <Heading color={"yellow"} fontSize={"100px"}>
-            {/* {gainer?.length} */}
+            {loafersData?.length}
           </Heading>
           <Text fontSize={"20px"}>Active Listings</Text>
           <Text color={"#00b5b8"} fontSize={"30px"}>
@@ -178,7 +144,7 @@ const Dashboard = () => {
           ml={"40px"}
         >
           <Heading color={"yellow"} fontSize={"100px"}>
-            {/* {Juice?.length} */}
+            {bootsData?.length}
           </Heading>
           <Text fontSize={"20px"}>Active Listings</Text>
           <Text color={"#00b5b8"} fontSize={"30px"}>
