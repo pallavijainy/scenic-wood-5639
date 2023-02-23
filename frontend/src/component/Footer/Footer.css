@@ -1,0 +1,55 @@
+.footer_page{
+    width: 100%;
+}
+.email_footer{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    width: 80%;
+}
+.inputButton{
+    display: flex;
+}
+.iconImage{
+    cursor: pointer; 
+}
+.footer_sectin{
+    background-color: #f0f0f0;
+    padding: 50px;
+}
+.footer_icon{
+    display: flex;
+    justify-content: center;
+}
+.footerSection{
+    display: flex;
+    margin-top: 50px;
+}
+.foot{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    height: auto;
+    width: 70%;
+    margin: auto;
+}
+.footer {
+    margin-top: 20px;
+    height: auto;
+    text-align: justify;
+}
+.foot>.footer>div{
+    margin-top: 20px;
+    height: auto;
+}
+
+li {
+    list-style: none;
+    color: gray;
+    font-size: small;
+}
+.footerText{
+    margin-top: 20px;
+    color: rgb(82, 74, 74);
+}

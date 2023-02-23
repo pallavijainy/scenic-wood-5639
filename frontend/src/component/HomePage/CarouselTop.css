@@ -1,0 +1,14 @@
+.carouselTop{
+   margin: auto;
+   margin-bottom: 30px;
+   
+}
+.carousel_box{
+
+    border: 5px solid rgb(252, 248, 248);
+    background-color: #333f48;
+    color: #fff;
+    height: 120px;
+    text-align: center;
+    margin: auto;
+}
