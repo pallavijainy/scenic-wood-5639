@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import { BsCheck2All } from "react-icons/bs";
 const ProductItems = ({
   i,
-  id,
-  product_title,
-  product_price,
-  product_photo,
+  _id,
+  details,
+  price,
+  image,
   category,
   active,
   handleToggleStatus,
@@ -29,50 +29,50 @@ const ProductItems = ({
           width={{ base: "10%", md: "10%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
         >
-          {/* <Text>{id}</Text> */}
+          <Text>{_id}</Text>
         </Box>
         <Box
           width={{ base: "5%", md: "13%", lg: "10%" }}
           onClick={() => {
-            // handleOpenDetails(id, product_photo, product_price, product_title);
+            handleOpenDetails(_id, image, price, details);
           }}
         >
-          {/* <Image width={"80%"} src={product_photo} alt={category}></Image> */}
+          <Image width={"100%"} src={image} alt={category}></Image>
         </Box>
         <Box
           width={{ base: "10%", md: "27%", lg: "25%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
           onClick={() => {
-            // handleOpenDetails(id, product_photo, product_price, product_title);
+            handleOpenDetails(_id, image, price, details);
           }}
         >
-          {/* <Text>{product_title}</Text> */}
+          <Text>{details}</Text>
         </Box>
         <Box
           width={{ base: "5%", md: "10%", lg: "8%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
           onClick={() => {
-            // handleOpenDetails(id, product_photo, product_price, product_title);
+            handleOpenDetails(_id, image, price, details);
           }}
         >
-          {/* <Text>$ {product_price}</Text> */}
+          <Text>$ {price}</Text>
         </Box>
         <Box
           width={{ base: "5%", md: "15%", lg: "15%" }}
           fontSize={{ base: "12px", md: "12px", lg: "md" }}
         >
-          {/* <Text>{category === "WheyProtien" ? "WheyProtein" : category}</Text> */}
+          <Text>{category}</Text>
         </Box>
         <Box w={{ base: "5%", md: "15%", lg: "10%" }}>
-          {/* <Button
+          <Button
             onClick={() => {
-              // handleToggleStatus(id, active);
+              handleToggleStatus(_id, active);
             }}
             size={{ base: "sm", md: "sm", lg: "md" }}
             colorScheme={active ? "green" : "red"}
           >
             {active ? "Active" : "Inactive"}
-          </Button> */}
+          </Button>
         </Box>
       </Box>
       {/* ```````````````````````````````small screen ``````````````````````````````````*/}
@@ -86,21 +86,21 @@ const ProductItems = ({
         <Box
           width={{ base: "50%", sm: "40%" }}
           onClick={() => {
-            // handleOpenDetails(id, product_photo, product_price, product_title);
+            handleOpenDetails(_id, image, price, details);
           }}
         >
           <Box
             h="25px"
             width={"58px"}
-            // border={active ? "1px solid Green" : "1px solid red"}
-            // bg={active ? "green.300" : "red.300"}
+            border={active ? "1px solid Green" : "1px solid red"}
+            bg={active ? "green.300" : "red.300"}
             mb={"10px"}
             color="black"
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
           >
-            {/* {active ? (
+            {active ? (
               <Text as="b" fontSize={{ base: "10px", sm: "12px" }}>
                 Active
               </Text>
@@ -108,15 +108,15 @@ const ProductItems = ({
               <Text as="b" fontSize={{ base: "10px", sm: "12px" }}>
                 Inactive
               </Text>
-            )} */}
+            )}
           </Box>
           <Image
             width={{ base: "60%", sm: "40%" }}
-            // src={product_photo}
-            // alt={category}
+            src={image}
+            alt={category}
           ></Image>
           <Text fontWeight={"bold"} fontSize={"lg"} mt={"20px"}>
-            {/* $ {product_price} */}
+            $ {price}
           </Text>
         </Box>
         {/* ```````````````````````````````````right Div````````````````````````````` */}
@@ -128,25 +128,25 @@ const ProductItems = ({
         >
           <Box>
             <Text as="b" fontSize={{ base: "13px", sm: "14px" }}>
-              {/* {product_title} */}
+              {details}
             </Text>
             <Text mt={"10px"} fontSize={{ base: "12px", sm: "13px" }}>
-              {/* {category === "WheyProtien" ? "WheyProtein" : category} */}
+              {category}
             </Text>
             <Text mt={"10px"} fontSize={{ base: "12px", sm: "13px" }}>
-              {/* ID- {id} */}
+              ID- {_id}
             </Text>
           </Box>
 
           <Button
             mt={"10px"}
             onClick={() => {
-              // handleToggleStatus(id, active);
+              handleToggleStatus(_id, active);
             }}
             size={"sm"}
-            // colorScheme={active ? "green" : "red"}
+            colorScheme={active ? "green" : "red"}
           >
-            {/* {active ? "Active" : "Inactive"} */}
+            {active ? "Active" : "Inactive"}
           </Button>
         </Box>
       </Box>

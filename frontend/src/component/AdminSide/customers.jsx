@@ -31,75 +31,75 @@ const Customers = () => {
   const toast = useToast();
   // fetch user data
   const handleGetUserData = () => {
-    // axios
-    //   .get(`dummyData/User-Details`)
-    //   .then((res) => setCustomerData(res.data));
+    axios
+      .get(`https://good-rose-kingfisher-tam.cyclic.app/user`)
+      .then((res) => setCustomerData(res.data));
   };
   // on Enter Search
-  const handleSearchData = (e) => {
-    // let data_input = e.target.value.split("");
-    // let convert = data_input[0]?.toUpperCase();
-    // data_input[0] = convert;
-    // let searchedData = data_input.join("");
-    // if (e.key == "Enter") {
-    //   searchTheData(searchedData, e.target.value);
-    // }
-  };
-  const searchTheData = async (searchedData, e) => {
-    // let res = await axios.get(
-    //   `dummyData/User-Details`
-    // );
-    // let data = await res.data;
-    // data = data.filter((el) => {
-    //   return (
-    //     el.Name.match(searchedData) || el.Email.match(e) || el.Phone.match(e)
-    //   );
-    // });
-    // setCustomerData(data);
-    // console.log(data);
-  };
+  // const handleSearchData = (e) => {
+  //   let data_input = e.target.value.split("");
+  //   let convert = data_input[0]?.toUpperCase();
+  //   data_input[0] = convert;
+  //   let searchedData = data_input.join("");
+  //   if (e.key == "Enter") {
+  //     searchTheData(searchedData, e.target.value);
+  //   }
+  // };
+  // const searchTheData = async (searchedData, e) => {
+  //   let res = await axios.get(
+  //     `https://good-rose-kingfisher-tam.cyclic.app/user/`
+  //   );
+  //   let data = await res.data;
+  //   data = data.filter((el) => {
+  //     return (
+  //       el.Name.match(searchedData) || el.Email.match(e) || el.Phone.match(e)
+  //     );
+  //   });
+  //   setCustomerData(data);
+  //   // console.log(data);
+  // };
   // ``````````````````````````````````````````````````````` Editable Modal ````````````````````````````````
   const handleOpenDetails = (id, Image, Password, Name, Phone, Email) => {
-    // setName(Name);
-    // setPass(Password);
-    // setImage(Image);
-    // msetId(id);
-    // setContact(Phone);
-    // setEmail(Email);
-    // onOpen();
+    setName(Name);
+    setPass(Password);
+    setImage(Image);
+    msetId(id);
+    setContact(Phone);
+    setEmail(Email);
+    onOpen();
   };
   //```````````````````````````````````````````````````````````` submit modal data`````````````````````````````
 
   const handleSubmitModalDetails = () => {
-    // let dataToSend = {
-    //   Name: name,
-    //   Phone: contact,
-    //   Email: Email,
-    //   Image: image,
-    //   Password: pass,
-    // };
-    // axios
-    //   .patch(
-    //     `dummyData/User-Details/${mid}`,
-    //     dataToSend
-    //   )
-    //   .then((res) => {
-    //     handleGetUserData();
-    //     toast({
-    //       title: "Updated Successfully",
-    //       status: "success",
-    //       duration: 3000,
-    //       isClosable: true,
-    //     });
-    //   })
-    //   .catch((res) => {
-    //     toast({
-    //       title: "Invalid Request",
-    //       status: "Error",
-    //       duration: 3000,
-    //       isClosable: true,
-    //     });
-    //   });
+    let dataToSend = {
+      name: name,
+      number: contact,
+      email: Email,
+      image: image,
+      confirmPass: pass,
+    };
+    axios
+      .patch(
+        `https://good-rose-kingfisher-tam.cyclic.app/user/update/${mid}`,
+        dataToSend
+      )
+      .then((res) => {
+        handleGetUserData();
+        toast({
+          title: "Updated Successfully",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((res) => {
+        toast({
+          title: "Invalid Request",
+          status: "Error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
   };
 
   useEffect(() => {
@@ -118,10 +118,10 @@ const Customers = () => {
       <Text color={"#00b5b8"}>List of Customers</Text>
 
       <Box mt={"30px"} width={{ base: "100%", md: "50%", lg: "30%" }}>
-        <Input
-          onKeyDown={handleSearchData}
+        {/* <Input
+          // onKeyDown={handleSearchData}
           placeholder="Search Users..."
-        ></Input>
+        ></Input> */}
       </Box>
 
       <Box
@@ -173,13 +173,13 @@ const Customers = () => {
         >
           <Text>PASSWORD</Text>
         </Box>
-        <Box
+        {/* <Box
           width={{ base: "20%", md: "15%" }}
           fontSize={{ base: "12px", md: "11px", lg: "14px" }}
           textAlign={"center"}
         >
           <Text>ADDRESS</Text>
-        </Box>
+        </Box> */}
       </Box>
 
       {customerData.map((el, i) => (
@@ -192,12 +192,12 @@ const Customers = () => {
           cursor={"pointer"}
           onClick={() => {
             handleOpenDetails(
-              el.id,
-              el.Image,
-              el.Password,
-              el.Name,
-              el.Phone,
-              el.Email
+              el._id,
+              el.image,
+              el.confirmPass,
+              el.name,
+              el.number,
+              el.email
             );
           }}
         >
@@ -216,20 +216,20 @@ const Customers = () => {
               width={{ base: "8%", md: "12%" }}
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
             >
-              <Avatar src={el.Image} name={el.Name}></Avatar>
+              <Avatar src={el.image} name={el.name}></Avatar>
             </Box>
             <Box
               width={{ base: "7%", md: "15%", lg: "15%" }}
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
             >
-              <Text>{el.Name}</Text>
+              <Text>{el.name}</Text>
             </Box>
 
             <Box
               width={{ base: "10%", md: "15%" }}
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
             >
-              <Text as={"mark"}>{el.Phone}</Text>
+              <Text as={"mark"}>{el.number}</Text>
             </Box>
 
             <Box
@@ -237,22 +237,22 @@ const Customers = () => {
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
               textAlign={"center"}
             >
-              <Text>{el.Email}</Text>
+              <Text>{el.email}</Text>
             </Box>
             <Box
               width={{ base: "10%", md: "13%" }}
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
               textAlign={"center"}
             >
-              <Text>{el.Password}</Text>
+              <Text>{el.confirmPass}</Text>
             </Box>
-            <Box
+            {/* <Box
               width={{ base: "20%", md: "15%" }}
               fontSize={{ base: "12px", md: "11px", lg: "14px" }}
               textAlign={"center"}
             >
-              <Text>{el.Address}</Text>
-            </Box>
+              <Text>{el.address}</Text>
+            </Box> */}
           </Box>
           {/*``````````````````````````` Small Screen Data```````````````````````` */}
           <Box
@@ -279,8 +279,8 @@ const Customers = () => {
               </Box>
               <Avatar
                 size={{ base: "lg", sm: "2xl" }}
-                src={el.Image}
-                name={el.Name}
+                src={el.image}
+                name={el.name}
               ></Avatar>
             </Box>
             {/* ```````````````````````````````````right Div````````````````````````````` */}
@@ -295,14 +295,14 @@ const Customers = () => {
                   fontWeight={"bold"}
                   fontSize={{ base: "13px", sm: "14px" }}
                 >
-                  {el.Name}
+                  {el.name}
                 </Text>
                 <Text
                   as={"mark"}
                   mt={"10px"}
                   fontSize={{ base: "12px", sm: "13px" }}
                 >
-                  {el.Phone}
+                  {el.number}
                 </Text>
                 <Text
                   fontWeight={"bold"}
@@ -310,18 +310,18 @@ const Customers = () => {
                   fontSize={{ base: "13px", sm: "14px" }}
                   color={"green.500"}
                 >
-                  Mail-{el.Email}
+                  Mail-{el.email}
                 </Text>
                 <Text
                   fontWeight={"bold"}
                   mt={"10px"}
                   fontSize={{ base: "13px", sm: "14px" }}
                 >
-                  Pass-{el.Password}
+                  Pass-{el.confirmPass}
                 </Text>
-                <Text mt={"10px"} fontSize={{ base: "13px", sm: "14px" }}>
+                {/* <Text mt={"10px"} fontSize={{ base: "13px", sm: "14px" }}>
                   {el.Address}
-                </Text>
+                </Text> */}
               </Box>
             </Box>
           </Box>
