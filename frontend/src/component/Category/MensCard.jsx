@@ -58,7 +58,7 @@ export default function MensCard({image,id,price,price2,brand,details}) {
             src={image}
           />
         </Box>
-        <div style={{background:"white"}} >
+        <Box style={{background:"white"}} >
         <Stack pt={10} align={'center'}>
           <Text noOfLines={3} textDecoration={'none'} color={'black'} fontSize={'sm'} textTransform={'uppercase'}>
             {brand}
@@ -79,7 +79,7 @@ export default function MensCard({image,id,price,price2,brand,details}) {
        
        
         </Stack>
-        </div>
+        </Box>
       </Box>
       </RouterLink>
     </Center>

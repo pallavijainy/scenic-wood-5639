@@ -15,11 +15,11 @@ const next= <Button style={{border:"none",  background:"teal"}} disabled={curren
 
     return(
 
-          <div>
+          <Box>
             {prev}
             {pages}
             {next}
-          </div>
+          </Box>
 
     )
 }
