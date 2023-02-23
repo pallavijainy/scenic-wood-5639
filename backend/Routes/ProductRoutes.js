@@ -5,6 +5,18 @@ const { ProductModel } = require("../models/Products.model");
 
 const ProductRouter = Router();
 
+
+ProductRouter.get("/:id" , async(req,res)=>{
+  const {id} = req.params
+try {
+  const data = await ProductModel.find({"_id":id})
+  res.send(data)
+  
+} catch (error) {
+ res.send(error) 
+}
+})
+
 ProductRouter.get("/", async (req, res) => {
   const category = req.query;
   const sub_category = req.query;
