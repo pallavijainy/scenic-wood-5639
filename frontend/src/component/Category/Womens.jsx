@@ -1,18 +1,19 @@
 // main product page
 import axios from "axios"
-import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,
+import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,Menu,MenuButton,MenuList,MenuItem,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-
-
+import ProductCard from "./ProductCard"
+import SideBar from "./Sidebar"
 import Pagination from "./Pagination"
-import WomenCard from "./WomenCard"
+import WomanCard from "./WomenCard"
 
-const Women=()=>{
+const Woman=()=>{
 const [data,setData] = useState([])
 const[page,setPage] = useState(1)
 const[asortdata,setAsortdata]=useState([])
 const[dsortdata,setDsortdata]=useState([])
+const[color,setColor]=useState(false)
 
 
 
@@ -28,11 +29,17 @@ useEffect(()=>{
 // -------------------------------------------
 const  DescData=async(page)=>{
                
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=dsc&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=desc&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
 }
-  const  AscData=async(page)=>{
+  const  AscData=async()=>{
+   
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=asc&page=${page}&limit=16`)
+    let data = await res.json()
+    setData(data);
+}
+  const  All=async()=>{
    
     let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=asc&page=${page}&limit=16`)
     let data = await res.json()
@@ -41,11 +48,13 @@ const  DescData=async(page)=>{
 
 function HandleChange(e){
     if(e.target.value==="asc"){
-        console.log(asortdata)
+        console.log("asc",data)
         AscData()
-    }else if(e.target.value==="dsc"){
+    }else if(e.target.value==="desc"){
         DescData()
-        console.log(dsortdata)
+        console.log("desc",data)
+    }else{
+      All()
     }
   }
 
@@ -91,6 +100,17 @@ function HandleChange(e){
     setData(data);
     console.log(data);
 }
+  const  wrap=()=>{
+           const colordiv = document.getElementById("color")
+setColor(!color)
+console.log(color);
+if(color===true){
+  colordiv .display="none"
+}else{
+  colordiv .display="visible"
+}
+ 
+}
 // --------------------------------------
 
 
@@ -110,11 +130,11 @@ function HandleChange(e){
     Shoes/Women
 </Text>
 
-<Select  onChange={HandleChange} 
+<Select  onChange={(e)=>{HandleChange(e)}} 
   h="25px"
   color='white'
   placeholder='Sort By'>
-<option value="asc">Price: High to Low</option>
+<option value="desc">Price: High to Low</option>
     <option value="asc">Price: Low  to High</option>
     
 </Select>
@@ -155,7 +175,8 @@ function HandleChange(e){
     
   </Stack>
   <Stack margin="auto" justifyContent="left" alignItems="center">
-    <Text fontWeight="bold" >Color</Text>
+    <Box marginTop={'5px'} id="color" onClick={wrap} display='none' >Color
+    {/* <Text fontWeight="bold" >Color</Text> */}
     <Flex>
     <Text h='35px' w='35px' backgroundColor="black" ></Text>
     <Text >Black</Text>
@@ -177,8 +198,24 @@ function HandleChange(e){
     <Text >Teal</Text>
     </Flex>
     
-    
-   
+    </Box>
+   {/* <Menu>
+    <MenuButton w='100%' p="10px 20px">
+      <Flex>
+        <Text>
+Brand +
+        </Text>
+        
+      </Flex>
+    </MenuButton>
+    <MenuList borderRadius='none'>
+      <MenuItem w='100%' p="10px 20px" border='none' >Nike</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Vans</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Crocs</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Converse</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Sketchers</MenuItem>
+    </MenuList>
+   </Menu> */}
     
     
   </Stack>
@@ -215,7 +252,7 @@ function HandleChange(e){
 return (
 <GridItem key={e.id} >
     {/* mapping in card */}
-<WomenCard
+<WomanCard
 
 image={e.image}
 id={e._id}
@@ -244,4 +281,4 @@ price={e.price}
 
     )
 }
-export default Women
+export default Woman

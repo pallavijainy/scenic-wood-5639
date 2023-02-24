@@ -11,10 +11,10 @@ import {
   } from '@chakra-ui/react';
   import {Link as RouterLink} from "react-router-dom"
 
-  export default function WomenCard({image,id,price,price2,brand,details}) { 
+  export default function WomanCard({image,id,price,price2,brand,details}) { 
     return (
       <Center py={12}>
-        <RouterLink  to={`/womens/${id}`} >
+        <RouterLink  to={`/product/${id}`} >
         
         <Box
           role={'group'}
@@ -52,8 +52,8 @@ import {
             }}>
             <Image
               rounded={'lg'}
-              height={"100%"}
-              width={"100%"}
+              height={"70%"}
+              width={"80%"}
               
               src={image}
             />
