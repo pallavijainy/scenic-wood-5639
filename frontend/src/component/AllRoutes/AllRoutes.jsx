@@ -5,19 +5,18 @@ import Kids from "../Category/Kids";
 import Mens from "../Category/Mens";
 import Womens from "../Category/Womens";
 
-import HomePage from './../HomePage/HomePage';
+import HomePage from "./../HomePage/HomePage";
+import ProductDetails from "../Category/Productdetails";
 
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage/>}></Route>
+      <Route path="/" element={<HomePage />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
-      <Route path="/womens" element={<Womens/>} />
-    
-    <Route path="/mens" element={<Mens/>} />
-    <Route path="/kids" element={<Kids/>} />
-    {/* <Route path="/product/:id" element={<ProductDetails/>} /> */}
-    
+      <Route path="/womens" element={<Womens />} />
+      <Route path="/mens" element={<Mens />} />
+      <Route path="/kids" element={<Kids />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
     </Routes>
   );
 };
