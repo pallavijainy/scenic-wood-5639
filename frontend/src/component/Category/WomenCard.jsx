@@ -11,7 +11,7 @@ import {
   } from '@chakra-ui/react';
   import {Link as RouterLink} from "react-router-dom"
 
-  export default function WomanCard({image,id,price,price2,brand,details}) { 
+  export default function WomenCard({image,id,price,price2,brand,details}) { 
     return (
       <Center py={12}>
         <RouterLink  to={`/product/${id}`} >

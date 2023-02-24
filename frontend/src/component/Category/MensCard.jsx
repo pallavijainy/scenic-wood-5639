@@ -52,7 +52,7 @@ export default function MensCard({image,id,price,price2,brand,details}) {
           }}>
           <Image
             rounded={'lg'}
-            height={"100%"}
+           
             width={"100%"}
             
             src={image}
