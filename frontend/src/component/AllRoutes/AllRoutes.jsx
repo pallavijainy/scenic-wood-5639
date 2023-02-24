@@ -4,18 +4,31 @@ import Cart from "../../Pages/Cart";
 import Admin from "../../Pages/Admin";
 import Kids from "../Category/Kids";
 import Mens from "../Category/Mens";
-import Womens from "../Category/Womens";
 
-import HomePage from "./../HomePage/HomePage";
+import Women from "../Category/Womens";
+import HomePage from './../HomePage/HomePage';
+import Payment from "../../Pages/Payment";
+
+
+
+
 import ProductDetails from "../Category/Productdetails";
 import Login from "../LoginSignupPage/Login";
 import Signup from "../LoginSignupPage/Signup";
+
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
+
+     
+      <Route path="/payment" element={<Payment/>} />
+    
+   
+    
+
 
       <Route path="/cart" element={<Cart />}></Route>
 
@@ -25,6 +38,7 @@ const AllRoutes = () => {
       <Route path="/signup" element={<Signup/>} />
       <Route path="/kids" element={<Kids />} />
       <Route path="/product/:id" element={<ProductDetails />} />
+
 
     </Routes>
   );
