@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Admin from "../../Pages/Admin";
 import Kids from "../Category/Kids";
 import Mens from "../Category/Mens";
+import ProductDetails from "../Category/Productdetails";
 import Womens from "../Category/Womens";
 
 import HomePage from './../HomePage/HomePage';
@@ -16,7 +17,7 @@ const AllRoutes = () => {
     
     <Route path="/mens" element={<Mens/>} />
     <Route path="/kids" element={<Kids/>} />
-    {/* <Route path="/product/:id" element={<ProductDetails/>} /> */}
+    <Route path="/product/:id" element={<ProductDetails/>} />
     
     </Routes>
   );

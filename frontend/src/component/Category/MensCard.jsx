@@ -25,7 +25,7 @@ export default function MensCard({image,id,price,price2,brand,details}) {
         // boxShadow={'2xl'}
         rounded={'lg'}
         pos={'relative'}
-        zIndex={1}
+        
         boxShadow= {"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"}
         >
         <Box
@@ -43,7 +43,7 @@ export default function MensCard({image,id,price,price2,brand,details}) {
             left: 0,
             // backgroundImage: `url(${IMAGE})`,
             filter: 'blur(15px)',
-            zIndex: -1,
+            // zIndex: -1,
           }}
           _groupHover={{
             _after: {
