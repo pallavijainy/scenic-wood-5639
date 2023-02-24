@@ -7,7 +7,7 @@ import Navbar from "./component/Navbar/Navbar";
 import { useLocation } from "react-router-dom";
 function App() {
   const { pathname } = useLocation();
-  const adminHide = ["/admin"];
+  const adminHide = ["/admin","/Admin"];
   return (
     <Box>
       {!adminHide.includes(pathname) && <Navbar />}
