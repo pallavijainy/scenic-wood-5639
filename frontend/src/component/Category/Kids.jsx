@@ -1,14 +1,20 @@
 // main product page
 import axios from "axios"
-import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,
+import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-import ProductCard from "./ProductCard"
-import SideBar from "./Sidebar"
+
+
 import Pagination from "./Pagination"
+
 import KidsCard from "./KidsCard"
 
-const Kids=()=>{
+
+const kids=()=>{
 const [data,setData] = useState([])
 const[page,setPage] = useState(1)
 const[sortdata,setSortdata]=useState("asc")
@@ -19,7 +25,7 @@ const[sortdata,setSortdata]=useState("asc")
 useEffect(()=>{
     axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=${sortdata}&page=${page}&limit=16`).then((res)=>{
         console.log(res.data)
-        setData(res.data) 
+        setData(res.data)
         
     })
     },[page,sortdata])
@@ -31,8 +37,6 @@ function HandleChange(e){
   setSortdata(e.target.value)
 
   }
-
-
 
   const  sandle=async(page)=>{
            
@@ -80,30 +84,32 @@ function HandleChange(e){
 
 
     return(
-        <>
-   
+        <Box>
+        {/* add navbar */}
+ 
         
 <Flex>
    
     {/* ---------------------------------------------------- */}
 
-    <Box w='20%' border='1px solid red' >
-<Heading color="gray" >
-    Kids Shoes
+    <Box w='30%'  >
+<Heading marginLeft="5px"  color="gray" >
+    Kid's Shoes
 </Heading>
-<Text>
+<Text marginLeft="24%" marginTop="10px">
     Shoes/Kids
 </Text>
 
-<Select  onChange={(e)=>{HandleChange(e)}} 
-  h="25px"
-  color='white'
+<Select marginLeft="20%" marginTop="15px"  onChange={(e)=>HandleChange(e)} 
+  h="25px" w="50%"
+  
   placeholder='Sort By'>
 <option value="desc">Price: High to Low</option>
     <option value="asc">Price: Low  to High</option>
     
 </Select>
-<Heading as='h3' size='lg'>
+<hr />
+<Heading marginLeft="5px" marginTop="15px"  as='h3' size='lg'>
     Store Pickup
   </Heading>
   <Stack>
@@ -115,10 +121,30 @@ function HandleChange(e){
   </Stack>
 
   </Stack>
-  <Stack>
-    <Text fontWeight="bold" >Category</Text>
+  <hr />
+  
+  <hr />
+  
+  <hr />
+ 
+  
+  {/* --------------------------- */}
+  <Accordion defaultIndex={[0]} allowMultiple>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Category
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+
+  <Stack  margin="auto" justifyContent="left" alignItems="center">
+    
     <Text onClick={boots} cursor="pointer">Boots</Text>
-    <Text onClick={oxford} cursor="pointer">Loafers and Oxfords</Text>
+    <Text onClick={oxford} cursor="pointer">Loafers</Text>
     <Text id="sandle" onClick={sandle} cursor="pointer" >Sandles</Text>
     <Text>Boat Shoes</Text>
     <Text>Clogs and Mules</Text>
@@ -129,8 +155,21 @@ function HandleChange(e){
     <Text>Work and Safety</Text>
     
   </Stack>
-  <Stack>
-    <Text fontWeight="bold" >Brand</Text>
+    </AccordionPanel>
+  </AccordionItem>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Brand
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+ 
+ <Stack  margin="auto" justifyContent="left" alignItems="center">
+    
     <Text onClick={nike} cursor="pointer">Nike</Text>
     <Text onClick={vans} cursor="pointer">Vans</Text>
     <Text onClick={crocs} cursor="pointer">Crocs</Text>
@@ -139,8 +178,21 @@ function HandleChange(e){
     
     
   </Stack>
-  <Stack margin="auto" justifyContent="left" alignItems="center">
-    <Text fontWeight="bold" >Color</Text>
+    </AccordionPanel>
+  </AccordionItem>
+
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Color
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+    <Stack margin="auto" justifyContent="left" alignItems="center">
+    
     <Flex>
     <Text h='35px' w='35px' backgroundColor="black" ></Text>
     <Text >Black</Text>
@@ -167,8 +219,20 @@ function HandleChange(e){
     
     
   </Stack>
-  <Stack>
-    <Text fontWeight="bold" >Size</Text>
+    </AccordionPanel>
+  </AccordionItem>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Size
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+    <Stack  >
+    
     <Flex justifyContent="space-evenly">
     <Text border='1px solid black' h='35px' w='35px'  >3</Text>
     <Text border='1px solid black' h='35px' w='35px' >4</Text>
@@ -189,6 +253,11 @@ function HandleChange(e){
     
     
   </Stack>
+    </AccordionPanel>
+  </AccordionItem>
+</Accordion>
+  {/* -------------------------------- */}
+  
 
 
 </Box>
@@ -205,7 +274,7 @@ return (
 image={e.image}
 id={e._id}
 brand = {e.brand}
-details={e.details}
+details={e.details} 
 
 price2={e.price2}
 price={e.price}
@@ -221,12 +290,18 @@ price={e.price}
 
 
 </Flex>
-<Box id="paginate" margin="auto" justifyContent="center" alignItems="center"  >
+<Box id="paginate" border='1px solid black' width="25%" justifyContent="center" margin="auto" alignItems='center' >
                 
-            <Pagination current={page} total={10} onChange={(value)=>setPage(value)} />
+            <Pagination current={page} total={4} onChange={(value)=>setPage(value)} />
+            
             </Box>
-</>
+            <Box>
+                {/* footer-------------- */}
+            
+            </Box>
+            
+</Box>
 
     )
 }
-export default Kids
+export default kids

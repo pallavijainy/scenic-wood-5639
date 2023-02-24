@@ -1,19 +1,24 @@
 // main product page
 import axios from "axios"
-import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,Menu,MenuButton,MenuList,MenuItem,
+import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-import ProductCard from "./ProductCard"
-import SideBar from "./Sidebar"
+
+
 import Pagination from "./Pagination"
 import WomenCard from "./WomenCard"
+
+
+
+
 
 const Womens=()=>{
 const [data,setData] = useState([])
 const[page,setPage] = useState(1)
-const[asortdata,setAsortdata]=useState([])
-const[dsortdata,setDsortdata]=useState([])
-const[color,setColor]=useState(false)
 const[sortdata,setSortdata]=useState("asc")
 
 
@@ -34,15 +39,6 @@ function HandleChange(e){
   setSortdata(e.target.value)
 
   }
-
-
-
-
-
-
-
-
-
 
   const  sandle=async(page)=>{
            
@@ -86,45 +82,36 @@ function HandleChange(e){
     setData(data);
     console.log(data);
 }
-  const  wrap=()=>{
-           const colordiv = document.getElementById("color")
-setColor(!color)
-console.log(color);
-if(color===true){
-  colordiv .display="none"
-}else{
-  colordiv .display="visible"
-}
- 
-}
 // --------------------------------------
 
 
     return(
-        <>
-   
+        <Box>
+        {/* add navbar */}
+ 
         
 <Flex>
    
     {/* ---------------------------------------------------- */}
 
-    <Box w='20%' border='1px solid red' >
-<Heading color="gray" >
+    <Box w='35%'  >
+<Heading marginLeft="5px"  color="gray" >
     Women's Shoes
 </Heading>
-<Text>
-    Shoes/Women
+<Text marginLeft="24%" marginTop="10px">
+    Shoes/womens
 </Text>
 
-<Select  onChange={(e)=>{HandleChange(e)}} 
-  h="25px"
-  color='white'
+<Select marginLeft="20%" marginTop="15px"  onChange={(e)=>HandleChange(e)} 
+  h="25px" w="50%"
+  
   placeholder='Sort By'>
 <option value="desc">Price: High to Low</option>
     <option value="asc">Price: Low  to High</option>
     
 </Select>
-<Heading as='h3' size='lg'>
+<hr />
+<Heading marginLeft="15px" marginTop="15px"  as='h3' size='lg'>
     Store Pickup
   </Heading>
   <Stack>
@@ -136,10 +123,30 @@ if(color===true){
   </Stack>
 
   </Stack>
-  <Stack>
-    <Text fontWeight="bold" >Category</Text>
+  <hr />
+  
+  <hr />
+  
+  <hr />
+ 
+  
+  {/* --------------------------- */}
+  <Accordion defaultIndex={[0]} allowMultiple>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Category
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+
+  <Stack  margin="auto" justifyContent="left" alignItems="center">
+    
     <Text onClick={boots} cursor="pointer">Boots</Text>
-    <Text onClick={oxford} cursor="pointer">Loafers and Oxfords</Text>
+    <Text onClick={oxford} cursor="pointer">Loafers</Text>
     <Text id="sandle" onClick={sandle} cursor="pointer" >Sandles</Text>
     <Text>Boat Shoes</Text>
     <Text>Clogs and Mules</Text>
@@ -150,8 +157,21 @@ if(color===true){
     <Text>Work and Safety</Text>
     
   </Stack>
-  <Stack>
-    <Text fontWeight="bold" >Brand</Text>
+    </AccordionPanel>
+  </AccordionItem>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Brand
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+ 
+ <Stack  margin="auto" justifyContent="left" alignItems="center">
+    
     <Text onClick={nike} cursor="pointer">Nike</Text>
     <Text onClick={vans} cursor="pointer">Vans</Text>
     <Text onClick={crocs} cursor="pointer">Crocs</Text>
@@ -160,9 +180,21 @@ if(color===true){
     
     
   </Stack>
-  <Stack margin="auto" justifyContent="left" alignItems="center">
-    <Box marginTop={'5px'} id="color" onClick={wrap} display='none' >Color
-    {/* <Text fontWeight="bold" >Color</Text> */}
+    </AccordionPanel>
+  </AccordionItem>
+
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Color
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+    <Stack margin="auto" justifyContent="left" alignItems="center">
+    
     <Flex>
     <Text h='35px' w='35px' backgroundColor="black" ></Text>
     <Text >Black</Text>
@@ -184,29 +216,25 @@ if(color===true){
     <Text >Teal</Text>
     </Flex>
     
-    </Box>
-   {/* <Menu>
-    <MenuButton w='100%' p="10px 20px">
-      <Flex>
-        <Text>
-Brand +
-        </Text>
-        
-      </Flex>
-    </MenuButton>
-    <MenuList borderRadius='none'>
-      <MenuItem w='100%' p="10px 20px" border='none' >Nike</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Vans</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Crocs</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Converse</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Sketchers</MenuItem>
-    </MenuList>
-   </Menu> */}
+    
+   
     
     
   </Stack>
-  <Stack>
-    <Text fontWeight="bold" >Size</Text>
+    </AccordionPanel>
+  </AccordionItem>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='center'>
+          Size
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+    <Stack  >
+    
     <Flex justifyContent="space-evenly">
     <Text border='1px solid black' h='35px' w='35px'  >3</Text>
     <Text border='1px solid black' h='35px' w='35px' >4</Text>
@@ -227,6 +255,11 @@ Brand +
     
     
   </Stack>
+    </AccordionPanel>
+  </AccordionItem>
+</Accordion>
+  {/* -------------------------------- */}
+ 
 
 
 </Box>
@@ -243,7 +276,7 @@ return (
 image={e.image}
 id={e._id}
 brand = {e.brand}
-details={e.details}
+details={e.details} 
 
 price2={e.price2}
 price={e.price}
@@ -259,11 +292,17 @@ price={e.price}
 
 
 </Flex>
-<Box id="paginate" margin="auto" justifyContent="center" alignItems="center"  >
+<Box id="paginate" border='1px solid black' width="25%" justifyContent="center" margin="auto" alignItems='center' >
                 
-            <Pagination current={page} total={10} onChange={(value)=>setPage(value)} />
+            <Pagination current={page} total={4} onChange={(value)=>setPage(value)} />
+            
             </Box>
-</>
+            <Box>
+                {/* footer-------------- */}
+            
+            </Box>
+            
+</Box>
 
     )
 }
