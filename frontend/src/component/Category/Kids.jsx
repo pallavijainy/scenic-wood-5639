@@ -3,7 +3,7 @@ import axios from "axios"
 import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-
+import ProductCard from "./ProductCard"
 import SideBar from "./Sidebar"
 import Pagination from "./Pagination"
 import KidsCard from "./KidsCard"
@@ -28,7 +28,7 @@ useEffect(()=>{
 // -------------------------------------------
 const  DescData=async(page)=>{
                
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=dsc&page=${page}&limit=16`)
+    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=desc&page=${page}&limit=16`)
     let data = await res.json()
     setData(data);
 }
@@ -38,14 +38,22 @@ const  DescData=async(page)=>{
     let data = await res.json()
     setData(data);
 }
+const  All=async()=>{
+   
+  let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=asc&page=${page}&limit=16`)
+  let data = await res.json()
+  setData(data);
+}
 
 function HandleChange(e){
     if(e.target.value==="asc"){
         console.log(asortdata)
         AscData()
-    }else if(e.target.value==="dsc"){
+    }else if(e.target.value==="desc"){
         DescData()
         console.log(dsortdata)
+    }else{
+      All()
     }
   }
 
@@ -114,7 +122,7 @@ function HandleChange(e){
   h="25px"
   color='white'
   placeholder='Sort By'>
-<option value="asc">Price: High to Low</option>
+<option value="desc">Price: High to Low</option>
     <option value="asc">Price: Low  to High</option>
     
 </Select>
