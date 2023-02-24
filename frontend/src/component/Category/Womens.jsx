@@ -6,57 +6,43 @@ import {useEffect,useState} from "react"
 import ProductCard from "./ProductCard"
 import SideBar from "./Sidebar"
 import Pagination from "./Pagination"
-import WomanCard from "./WomenCard"
+import WomenCard from "./WomenCard"
 
-const Woman=()=>{
+const Womens=()=>{
 const [data,setData] = useState([])
 const[page,setPage] = useState(1)
 const[asortdata,setAsortdata]=useState([])
 const[dsortdata,setDsortdata]=useState([])
 const[color,setColor]=useState(false)
+const[sortdata,setSortdata]=useState("asc")
+
 
 
 
 useEffect(()=>{
-    axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&page=${page}&limit=16`).then((res)=>{
+    axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=${sortdata}&page=${page}&limit=16`).then((res)=>{
         console.log(res.data)
         setData(res.data)
         
     })
-    },[page])
+    },[page,sortdata])
 
 
-// -------------------------------------------
-const  DescData=async(page)=>{
-               
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=desc&page=${page}&limit=16`)
-    let data = await res.json()
-    setData(data);
-}
-  const  AscData=async()=>{
-   
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=asc&page=${page}&limit=16`)
-    let data = await res.json()
-    setData(data);
-}
-  const  All=async()=>{
-   
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=asc&page=${page}&limit=16`)
-    let data = await res.json()
-    setData(data);
-}
+
 
 function HandleChange(e){
-    if(e.target.value==="asc"){
-        console.log("asc",data)
-        AscData()
-    }else if(e.target.value==="desc"){
-        DescData()
-        console.log("desc",data)
-    }else{
-      All()
-    }
+  setSortdata(e.target.value)
+
   }
+
+
+
+
+
+
+
+
+
 
   const  sandle=async(page)=>{
            
@@ -252,7 +238,7 @@ Brand +
 return (
 <GridItem key={e.id} >
     {/* mapping in card */}
-<WomanCard
+<WomenCard
 
 image={e.image}
 id={e._id}
@@ -281,4 +267,4 @@ price={e.price}
 
     )
 }
-export default Woman
+export default Womens

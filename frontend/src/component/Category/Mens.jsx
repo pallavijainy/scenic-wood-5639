@@ -11,50 +11,25 @@ import MensCard from "./Menscard"
 const Mens=()=>{
 const [data,setData] = useState([])
 const[page,setPage] = useState(1)
-const[asortdata,setAsortdata]=useState([])
-const[dsortdata,setDsortdata]=useState([])
+const[sortdata,setSortdata]=useState("asc")
+
 
 
 
 useEffect(()=>{
-    axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&page=${page}&limit=16`).then((res)=>{
+    axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=${sortdata}&page=${page}&limit=16`).then((res)=>{
         console.log(res.data)
         setData(res.data)
         
     })
-    },[page])
+    },[page,sortdata])
 
 
-// -------------------------------------------
-const  DescData=async(page)=>{
-               
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=desc&page=${page}&limit=16`)
-    let data = await res.json()
-    setData(data);
-}
-  const  AscData=async(page)=>{
-   
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=asc&page=${page}&limit=16`)
-    let data = await res.json()
-    setData(data);
-}
-const  All=async()=>{
-   
-  let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=asc&page=${page}&limit=16`)
-  let data = await res.json()
-  setData(data);
-}
+
 
 function HandleChange(e){
-    if(e.target.value==="asc"){
-        console.log(asortdata)
-        AscData()
-    }else if(e.target.value==="desc"){
-        DescData()
-        console.log(dsortdata)
-    }else{
-      All()
-    }
+  setSortdata(e.target.value)
+
   }
 
   const  sandle=async(page)=>{
@@ -118,9 +93,9 @@ function HandleChange(e){
     Shoes/Man
 </Text>
 
-<Select  onChange={HandleChange} 
+<Select  onChange={(e)=>HandleChange(e)} 
   h="25px"
-  color='white'
+  
   placeholder='Sort By'>
 <option value="desc">Price: High to Low</option>
     <option value="asc">Price: Low  to High</option>

@@ -26,11 +26,18 @@ const {image,details,price,price2,brand}=product
 console.log(product.image)
 
 function addtocart(obj){
-    axios.post(`https://good-rose-kingfisher-tam.cyclic.app/cart/`, obj)
+    axios.post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, obj,{
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2Y0NzVjMWE1OTAzMDE2NTBkNTgwNzQiLCJpYXQiOjE2NzcyNDUxNTR9.ten075tYauwUEOpRzQRu4zHPgE1XPnYK79pYpeuFNO4"
+      }
+    })
     .then((res)=>console.log(res))
     .catch((err)=>console.log(err))
     console.log(obj);
 }
+// pallavi@gmail.com
+// pallavi
 
     return (
    <Box>
