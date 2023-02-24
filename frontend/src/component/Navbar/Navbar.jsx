@@ -1,8 +1,6 @@
 import {
   Box,
- 
   Divider,
- 
   Input,
   InputGroup,
   InputRightAddon,
@@ -19,32 +17,43 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const Navbar = () => {
   return (
-    <Box id="nav"  p={{base:"10px",md:"none"}} >
-      <Box className="wrapper" display="flex" justifyContent="space-between" alignItems="center">
-        <Box className="logo" display={{base:"center"}} width={{base:"20%" , md:"10%"}}>
-          <img src={image} alt=""  />
-        </Box>
+    <Box id="nav" p={{ base: "10px", md: "none" }}>
+      <Box
+        className="wrapper"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+          <Box
+            className="logo"
+            display={{ base: "center" }}
+            width={{ base: "20%", md: "10%" }}
+          >
+        <Link to={"/"}>
+            <img src={image} alt="" />
+        </Link>
+          </Box>
+
         <Box>
           <Box display={"flex"} justifyContent="space-between" mt={"20px"}>
-          <Box display={"flex"} justifyContent="space-between">
-            <InputGroup display={{ base: "none", md: "flex" }}>
-              <Input
-                variant="outline"
-                placeholder="Find Something Famous For You"
-                width={"300px"}
-              />
-              <InputRightAddon children={<SearchIcon />} />
-            </InputGroup>
+            <Box display={"flex"} justifyContent="space-between">
+              <InputGroup display={{ base: "none", md: "flex" }}>
+                <Input
+                  variant="outline"
+                  placeholder="Find Something Famous For You"
+                  width={"300px"}
+                />
+                <InputRightAddon children={<SearchIcon />} />
+              </InputGroup>
+            </Box>
+            <Box display={"flex"} gap="30px">
+              <AccountCircleIcon fontSize="large" />
+              <FavoriteBorderIcon fontSize="large" />
+              <ShoppingCartIcon fontSize="large" />
+            </Box>
+          </Box>
 
-          </Box>
-          <Box display={"flex"} gap="30px">
-          <AccountCircleIcon fontSize="large"/>
-              <FavoriteBorderIcon  fontSize="large"/>
-              <ShoppingCartIcon fontSize="large"/>
-          </Box>
-          </Box>
-        
-          <Box class="navbar" display={{base:"none",md:"block"}}>
+          <Box class="navbar" display={{ base: "none", md: "block" }}>
             <div class="dropdown">
               <button class="dropbtn">
                 New & Now
@@ -106,7 +115,7 @@ const Navbar = () => {
 
             <div class="dropdown">
               <button class="dropbtn">
-                Women
+                <Link to={"/womens"}>Women</Link>
                 <i class="fa fa-caret-down"></i>
               </button>
               <div class="dropdown-content">
@@ -196,7 +205,7 @@ const Navbar = () => {
 
             <div class="dropdown">
               <button class="dropbtn">
-                Men
+                <Link to={"/mens"}>Men</Link>
                 <i class="fa fa-caret-down"></i>
               </button>
               <div class="dropdown-content">
@@ -286,7 +295,7 @@ const Navbar = () => {
 
             <div class="dropdown">
               <button class="dropbtn">
-                Kids
+                <Link to={"/kids"}> Kids</Link>
                 <i class="fa fa-caret-down"></i>
               </button>
               <div class="dropdown-content">
@@ -516,9 +525,8 @@ const Navbar = () => {
           </Box>
         </Box>
       </Box>
-     <hr />
+      <hr />
     </Box>
-
   );
 };
 

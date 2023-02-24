@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import SideBar from "./Sidebar";
 import Pagination from "./Pagination";
 import WomenCard from "./WomenCard";
+import Footer from "../Footer/Footer";
 
 const mens = () => {
   const [data, setData] = useState([]);
@@ -298,6 +299,7 @@ Brand +
           onChange={(value) => setPage(value)}
         />
       </Box>
+      <Footer/>
     </>
   );
 };

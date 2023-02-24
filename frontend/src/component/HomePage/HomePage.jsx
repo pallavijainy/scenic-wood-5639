@@ -4,10 +4,12 @@ import { Box, Image, Heading, Text, Stack, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import CarouselTop from "./CarouselTop";
 import CarouselLast from "./CarouselLast";
+import Footer from "../Footer/Footer";
 
 const HomePage = () => {
   return (
-    <Box className="homePage">
+    <>
+     <Box className="homePage">
       <Box className="home_text">
         <Box className="home_text_img">
           <Image
@@ -396,6 +398,10 @@ const HomePage = () => {
         </Text>
       </Box>
     </Box>
+    <Footer/>
+    </>
+   
+    
   );
 };
 

@@ -7,11 +7,12 @@ import Navbar from "./component/Navbar/Navbar";
 import { useLocation } from "react-router-dom";
 function App() {
   const { pathname } = useLocation();
-  const adminHide = ["/admin","/Admin"];
+  const adminHide = ["/admin","/Admin","/login","/signup"];
   return (
     <Box>
       {!adminHide.includes(pathname) && <Navbar />}
       <AllRoutes />
+
     </Box>
   );
 }

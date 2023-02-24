@@ -7,6 +7,8 @@ import Womens from "../Category/Womens";
 
 import HomePage from "./../HomePage/HomePage";
 import ProductDetails from "../Category/Productdetails";
+import Login from "../LoginSignupPage/Login";
+import Signup from "../LoginSignupPage/Signup";
 
 const AllRoutes = () => {
   return (
@@ -15,8 +17,11 @@ const AllRoutes = () => {
       <Route path="/admin" element={<Admin />}></Route>
       <Route path="/womens" element={<Womens />} />
       <Route path="/mens" element={<Mens />} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />
       <Route path="/kids" element={<Kids />} />
       <Route path="/product/:id" element={<ProductDetails />} />
+
     </Routes>
   );
 };

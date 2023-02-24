@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import SideBar from "./Sidebar";
 import Pagination from "./Pagination";
 import KidsCard from "./KidsCard";
+import Footer from "../Footer/Footer";
 
 const Kids = () => {
   const [data, setData] = useState([]);
@@ -263,6 +264,7 @@ const Kids = () => {
           onChange={(value) => setPage(value)}
         />
       </Box>
+    <Footer/>
     </>
   );
 };
