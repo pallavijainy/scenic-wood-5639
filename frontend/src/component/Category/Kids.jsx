@@ -3,7 +3,7 @@ import axios from "axios"
 import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-import ProductCard from "./ProductCard"
+// import ProductCard from "./ProductCard"
 import SideBar from "./Sidebar"
 import Pagination from "./Pagination"
 import KidsCard from "./KidsCard"

@@ -1,16 +1,19 @@
 // main product page
 import axios from "axios"
-import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,
+import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,Menu,MenuButton,MenuList,MenuItem,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-
-
+// import ProductCard from "./ProductCard"
+import SideBar from "./Sidebar"
 import Pagination from "./Pagination"
-import MensCard from "./Menscard"
+import WomenCard from "./WomenCard"
 
-const Mens=()=>{
+const mens=()=>{
 const [data,setData] = useState([])
 const[page,setPage] = useState(1)
+const[asortdata,setAsortdata]=useState([])
+const[dsortdata,setDsortdata]=useState([])
+const[color,setColor]=useState(false)
 const[sortdata,setSortdata]=useState("asc")
 
 
@@ -31,6 +34,15 @@ function HandleChange(e){
   setSortdata(e.target.value)
 
   }
+
+
+
+
+
+
+
+
+
 
   const  sandle=async(page)=>{
            
@@ -74,6 +86,17 @@ function HandleChange(e){
     setData(data);
     console.log(data);
 }
+  const  wrap=()=>{
+           const colordiv = document.getElementById("color")
+setColor(!color)
+console.log(color);
+if(color===true){
+  colordiv .display="none"
+}else{
+  colordiv .display="visible"
+}
+ 
+}
 // --------------------------------------
 
 
@@ -87,15 +110,15 @@ function HandleChange(e){
 
     <Box w='20%' border='1px solid red' >
 <Heading color="gray" >
-    Men's Shoes
+    Women's Shoes
 </Heading>
 <Text>
-    Shoes/Man
+    Shoes/Women
 </Text>
 
-<Select  onChange={(e)=>HandleChange(e)} 
+<Select  onChange={(e)=>{HandleChange(e)}} 
   h="25px"
-  
+  color='white'
   placeholder='Sort By'>
 <option value="desc">Price: High to Low</option>
     <option value="asc">Price: Low  to High</option>
@@ -138,7 +161,8 @@ function HandleChange(e){
     
   </Stack>
   <Stack margin="auto" justifyContent="left" alignItems="center">
-    <Text fontWeight="bold" >Color</Text>
+    <Box marginTop={'5px'} id="color" onClick={wrap} display='none' >Color
+    {/* <Text fontWeight="bold" >Color</Text> */}
     <Flex>
     <Text h='35px' w='35px' backgroundColor="black" ></Text>
     <Text >Black</Text>
@@ -160,8 +184,24 @@ function HandleChange(e){
     <Text >Teal</Text>
     </Flex>
     
-    
-   
+    </Box>
+   {/* <Menu>
+    <MenuButton w='100%' p="10px 20px">
+      <Flex>
+        <Text>
+Brand +
+        </Text>
+        
+      </Flex>
+    </MenuButton>
+    <MenuList borderRadius='none'>
+      <MenuItem w='100%' p="10px 20px" border='none' >Nike</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Vans</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Crocs</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Converse</MenuItem>
+      <MenuItem w='100%' p="10px 20px" border='none'>Sketchers</MenuItem>
+    </MenuList>
+   </Menu> */}
     
     
   </Stack>
@@ -198,7 +238,7 @@ function HandleChange(e){
 return (
 <GridItem key={e.id} >
     {/* mapping in card */}
-<MensCard
+<WomenCard
 
 image={e.image}
 id={e._id}
@@ -227,4 +267,4 @@ price={e.price}
 
     )
 }
-export default Mens
+export default mens
