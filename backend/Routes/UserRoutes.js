@@ -6,9 +6,10 @@ const userRouter = Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { userModel } = require("../models/user.models");
+const { Validator } = require("../middleware/Validator.middleware");
 
 //register
-userRouter.post("/register", async (req, res) => {
+userRouter.post("/register", Validator,async (req, res) => {
   const { name, email, password, confirmPass, number } = req.body;
   const data = await userModel.find({
     $or: [{ email: email }, { number: number }],

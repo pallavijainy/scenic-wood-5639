@@ -14,7 +14,7 @@ import {Link as RouterLink} from "react-router-dom"
 export default function MensCard({image,id,price,price2,brand,details}) { 
   return (
     <Center py={12}>
-      <RouterLink  to={`/mens/${id}`} >
+      <RouterLink  to={`/product/${id}`} >
       
       <Box
         role={'group'}
@@ -52,13 +52,13 @@ export default function MensCard({image,id,price,price2,brand,details}) {
           }}>
           <Image
             rounded={'lg'}
-            height={"100%"}
+           
             width={"100%"}
             
             src={image}
           />
         </Box>
-        <Box style={{background:"white"}} >
+        <div style={{background:"white"}} >
         <Stack pt={10} align={'center'}>
           <Text noOfLines={3} textDecoration={'none'} color={'black'} fontSize={'sm'} textTransform={'uppercase'}>
             {brand}
@@ -79,7 +79,7 @@ export default function MensCard({image,id,price,price2,brand,details}) {
        
        
         </Stack>
-        </Box>
+        </div>
       </Box>
       </RouterLink>
     </Center>
