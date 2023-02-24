@@ -7,18 +7,21 @@ import {  Grid,Box,Flex,Stack,Text,Heading,Checkbox,Select,Accordion,
     AccordionIcon,
     GridItem} from "@chakra-ui/react"
 import {useEffect,useState} from "react"
-
-
 import Pagination from "./Pagination"
 import MensCard from "./MensCard"
 
+const Mens = () => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [color, setColor] = useState(false);
+  const [sortdata, setSortdata] = useState("asc");
 
 
 
-const Mens=()=>{
-const [data,setData] = useState([])
-const[page,setPage] = useState(1)
-const[sortdata,setSortdata]=useState("asc")
+
+
+
+
 
 
 
@@ -34,57 +37,69 @@ useEffect(()=>{
 
 
 
-function HandleChange(e){
-  setSortdata(e.target.value)
 
+
+  function HandleChange(e) {
+    setSortdata(e.target.value);
   }
 
-  const  sandle=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Sandles&page=${page}&limit=16`)
-    let data = await res.json()
+  const sandle = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Sandles&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  boots=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Boots&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const boots = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Boots&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  oxford=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=LoafersAndOxfords&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const oxford = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=LoafersAndOxfords&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  nike=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=nike&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const nike = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=nike&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  vans=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=vans&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const vans = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=vans&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  crocs=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=crocs&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const crocs = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=crocs&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-// --------------------------------------
+  };
 
+  // --------------------------------------
 
-    return(
+  return (
+    <>
+      <Flex>
+        {/* ---------------------------------------------------- */}
+
+  
         <Box>
         {/* add navbar */}
  
@@ -302,6 +317,8 @@ price={e.price}
             </Box>
             
 </Box>
+</Flex>
+</>
 
     )
 }

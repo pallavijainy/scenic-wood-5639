@@ -19,6 +19,16 @@ const [data,setData] = useState([])
 const[page,setPage] = useState(1)
 const[sortdata,setSortdata]=useState("asc")
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=${sortdata}&page=${page}&limit=16`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      });
+  }, [page, sortdata]);
 
 
 
@@ -44,46 +54,55 @@ function HandleChange(e){
     let data = await res.json()
     setData(data);
     console.log(data);
-}
-  const  boots=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=Boots&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const boots = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=Boots&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  oxford=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=LoafersAndOxfords&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const oxford = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=LoafersAndOxfords&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  nike=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=nike&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const nike = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=nike&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  vans=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=vans&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const vans = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=vans&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-  const  crocs=async(page)=>{
-           
-    let res = await fetch(`https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=crocs&page=${page}&limit=16`)
-    let data = await res.json()
+  };
+  const crocs = async (page) => {
+    let res = await fetch(
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=crocs&page=${page}&limit=16`
+    );
+    let data = await res.json();
     setData(data);
     console.log(data);
-}
-// --------------------------------------
+  };
+  // --------------------------------------
 
+  return (
+    <>
+      <Flex>
+        {/* ---------------------------------------------------- */}
 
-    return(
+   
         <Box>
         {/* add navbar */}
  
@@ -301,7 +320,8 @@ price={e.price}
             </Box>
             
 </Box>
-
+</Flex>
+</>
     )
 }
 export default kids

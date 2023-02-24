@@ -1,7 +1,13 @@
 import {
-    Grid, Box, Flex, Stack, Text, Heading, Button,
-    GridItem
-} from "@chakra-ui/react"
+  Grid,
+  Box,
+  Flex,
+  Stack,
+  Text,
+  Heading,
+  Button,
+  GridItem,
+} from "@chakra-ui/react";
 
 function Pagination(props) {
     const { current, onChange, total } = props
@@ -12,17 +18,12 @@ function Pagination(props) {
         <Button border="1px solid black" margin="3px" onClick={() => onChange(i + 1)} disabled={current === (i + 1)} >{i + 1}</Button>
     )
 
-
-
-
-    return (
-
-        <Box>
-            {prev}
-            {pages}
-            {next}
-        </Box>
-
-    )
+  return (
+    <Box>
+      {prev}
+      {pages}
+      {next}
+    </Box>
+  );
 }
-export default Pagination
+export default Pagination;

@@ -4,8 +4,8 @@ import { useState,useEffect } from 'react';
 import {  Grid,Box,Flex,Stack,Text,Heading,Image,Button,UnorderedList,ListItem,useToast
     } from "@chakra-ui/react"
 
-import axios from 'axios';
-  import {Link as RouterLink} from "react-router-dom"
+import axios from "axios";
+import { Link as RouterLink } from "react-router-dom";
 
   import {useParams} from "react-router-dom"
 
@@ -15,17 +15,17 @@ import axios from 'axios';
     const {id} = useParams()
     const toast = useToast()
 
-useEffect(()=>{
+  useEffect(() => {
     axios
-    .get(`https://good-rose-kingfisher-tam.cyclic.app/product/${id}`)
-    .then(({data})=>{
-        setProduct(data[0])
-        console.log("data",data[0]);
-    })
-    .catch((err)=>console.log(err))
-},[id])
-const {image,details,price,price2,brand}=product
-console.log(product.image)
+      .get(`https://good-rose-kingfisher-tam.cyclic.app/product/${id}`)
+      .then(({ data }) => {
+        setProduct(data[0]);
+        console.log("data", data[0]);
+      })
+      .catch((err) => console.log(err));
+  }, [id]);
+  const { image, details, price, price2, brand } = product;
+  console.log(product.image);
 
 function addtocart(obj){
   toast({
@@ -44,7 +44,11 @@ function addtocart(obj){
     .then((res)=>console.log(res))
     .catch((err)=>console.log(err))
     console.log(obj);
-}
+  }
+  // pallavi@gmail.com
+  // pallavi
+
+ 
 // pallavi@gmail.com
 // pallavi
 
