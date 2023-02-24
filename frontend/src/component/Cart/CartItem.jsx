@@ -19,7 +19,7 @@ const QuantitySelect = (props) => {
   )
 }
 
-export const CartItem = (props) => {
+ const CartItem = (props) => {
   // const {
   //   isGiftWrapping,
   //   name,
@@ -109,3 +109,5 @@ export const CartItem = (props) => {
     </Flex>
   )
 }
+
+export default CartItem;
