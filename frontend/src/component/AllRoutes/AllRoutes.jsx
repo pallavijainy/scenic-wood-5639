@@ -5,6 +5,7 @@ import Kids from "../Category/Kids";
 import Mens from "../Category/Mens";
 import Women from "../Category/Womens";
 import HomePage from './../HomePage/HomePage';
+import Payment from "../../Pages/Payment";
 
 const AllRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AllRoutes = () => {
       <Route path="/" element={<HomePage/>}></Route>
       <Route path="/admin" element={<Admin />}></Route>
       <Route path="/womens" element={<Women/>} />
+      <Route path="/payment" element={<Payment/>} />
     
     <Route path="/mens" element={<Mens/>} />
     <Route path="/kids" element={<Kids/>} />
