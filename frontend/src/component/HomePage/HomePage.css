@@ -1,155 +1,156 @@
-.homePage {
-    width: 95%;
+.homePage{
+    width: 85%;
     margin: auto;
     /* border: 2px solid black; */
-    font-family: "Famous Footwear Sans", sans-serif;
+    font-family: "Famous Footwear Sans",sans-serif;
     text-align: center;
-    margin-top: 150px;
-  }
-  .home_text {
+}
+.home_text{
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-  }
-  .home_text_img {
+}
+.home_text_img{
     display: flex;
     width: 20%;
-  }
-  .video_Home {
+}
+.video_Home{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     cursor: pointer;
-  }
-  .video_section {
+}
+.video_section{
     width: 50%;
-  }
-  .off_Home {
+}
+.off_Home{
     display: flex;
     justify-content: space-around;
     background-color: rgb(148, 221, 221);
     padding: 50px;
     margin-top: 40px;
     margin-bottom: 40px;
-  }
-  .off_Home_img {
+}
+.off_Home_img{
     /* border: 1px solid red; */
     width: 60%;
     margin: auto;
-  }
-  .off_Home_link {
+}
+.off_Home_link{
     display: flex;
     justify-content: space-between;
     /* border: 1px solid ; */
     margin: auto;
     cursor: pointer;
-  }
-  .off_Home_li {
+}
+.off_Home_li{
     /* border: 1px solid red; */
     margin-left: 15px;
     font-size: large;
-  }
-  .shoes_ho {
+}
+.shoes_ho{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
     margin-bottom: 50px;
-  }
-  /* .shoes_ho_hover:hover{
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  } */
-  .offer_home_l {
+}
+/* .shoes_ho_hover:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+} */
+.offer_home_l{
     background-color: #eeeefa;
     padding: 40px;
     margin-bottom: 50px;
-  }
-  .offer_home {
+}
+.offer_home{
     display: flex;
     justify-content: center;
     margin: auto;
     /* border: 1px solid red; */
     width: 90%;
-  }
-  .offer_hom {
+}
+.offer_hom{
     /* border: 1px solid black; */
     margin: auto;
     width: 45%;
-  }
-  .offer_hom a {
+}
+.offer_hom a{
     font-weight: bold;
-  }
-  
-  .miss_deals {
+}
+
+.miss_deals{
     display: flex;
     justify-content: space-around;
     width: 70%;
     margin: auto;
     margin-top: 20px;
     cursor: pointer;
-  }
-  .miss_deals_text {
+}
+.miss_deals_text{
     position: relative;
-    top: -100px;
+    top:-100px;
     color: #fff;
-  }
-  .famous_home {
+}
+.famous_home{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     cursor: pointer;
-  }
-  .style_home {
+}
+.style_home{
     /* border: 1px solid red; */
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     margin: auto;
     margin-top: 50px;
-  }
-  .footer_img {
+}
+.footer_img{
     display: flex;
     justify-content: center;
     margin-top: 60px;
     cursor: pointer;
-  }
-  .gotta_brands {
+}
+.gotta_brands{
     margin-top: 70px;
-  }
-  .gotta_brands_logo {
+}
+.gotta_brands_logo{
     display: flex;
     justify-content: space-around;
+    /* border: 1px solid red; */
     margin-top: 40px;
-  }
-  .gotta_brands_box {
+   
+}
+.gotta_brands_box{
     /* border: 1px solid black; */
     width: 100%;
     margin-left: 10px;
     cursor: pointer;
-  }
-  .red_banner {
-    background-color: #d50032;
-    display: flex;
-    justify-content: space-around;
-    padding: 30px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-  }
-  .red_banner_pic {
-    /* border: 1px solid black; */
-    width: 90%;
-    margin: auto;
-  }
-  #butt:hover {
+}
+.red_banner{
+   background-color: #d50032;
+   display: flex;
+   justify-content: space-around;
+   padding: 30px;
+   margin-top: 50px;
+   margin-bottom: 20px;
+}
+.red_banner_pic{
+   /* border: 1px solid black; */
+   width: 90%;
+   margin: auto;
+}
+#butt:hover{
     background-color: black;
     color: #fff;
     border: 0px;
-  }
-  .text_home {
+}
+.text_home{
     font-weight: bold;
     margin-top: 50px;
-  }
-  .text_ho {
+}
+.text_ho{
     display: flex;
     justify-content: center;
     margin-top: 25px;
-  }
+}
