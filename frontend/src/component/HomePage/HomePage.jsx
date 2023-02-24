@@ -36,8 +36,8 @@ const HomePage = () => {
           src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2023/spring/1-story/wk4_022123_hp_converse_left.mp"
           loop="loop"
           muted="muted"
-          playsinline
-          autoplay={true}
+          playsinline=""
+          autoplay="autoplay"
         ></video>
 
         <Image
