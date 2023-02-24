@@ -1,5 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+// import reactLogo from "./assets/react.svg";
 // import "./App.css";
 import { Box } from "@chakra-ui/react";
 import AllRoutes from "./component/AllRoutes/AllRoutes";
