@@ -49,7 +49,7 @@ const Navbar = () => {
             <Box display={"flex"} gap="30px">
               <AccountCircleIcon fontSize="large" />
               <FavoriteBorderIcon fontSize="large" />
-              <ShoppingCartIcon fontSize="large" />
+              <Link to="/cart"><ShoppingCartIcon fontSize="large" /></Link>
             </Box>
           </Box>
 
