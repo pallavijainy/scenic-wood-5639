@@ -20,7 +20,7 @@ import SideBar from "./Sidebar";
 import Pagination from "./Pagination";
 import WomenCard from "./WomenCard";
 
-const mens = () => {
+const Womens = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [color, setColor] = useState(false);
@@ -29,7 +29,7 @@ const mens = () => {
   useEffect(() => {
     axios
       .get(
-        `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=${sortdata}&page=${page}&limit=16`
+        `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sort=${sortdata}&page=${page}&limit=16`
       )
       .then((res) => {
         console.log(res.data);
@@ -43,7 +43,7 @@ const mens = () => {
 
   const sandle = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Sandles&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sub_category=Sandles&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -51,7 +51,7 @@ const mens = () => {
   };
   const boots = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Boots&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sub_category=Boots&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -59,7 +59,7 @@ const mens = () => {
   };
   const oxford = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=LoafersAndOxfords&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&sub_category=LoafersAndOxfords&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -67,7 +67,7 @@ const mens = () => {
   };
   const nike = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=nike&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&brand=nike&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -75,7 +75,7 @@ const mens = () => {
   };
   const vans = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=vans&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&brand=vans&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -83,7 +83,7 @@ const mens = () => {
   };
   const crocs = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=crocs&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=womens&brand=crocs&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -301,4 +301,4 @@ Brand +
     </>
   );
 };
-export default mens;
+export default Womens;

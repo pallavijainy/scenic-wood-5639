@@ -12,23 +12,32 @@ import axios from 'axios';
     const [product,setProduct] = useState({})
     const [count,setCount] = useState(1)
     const {id} = useParams()
-    console.log(id)
+
 useEffect(()=>{
     axios
-    .get(`https://bharatmart.onrender.com/laptop/${id}`)
+    .get(`https://good-rose-kingfisher-tam.cyclic.app/product/${id}`)
     .then(({data})=>{
-        setProduct(data)
+        setProduct(data[0])
+        console.log("data",data[0]);
     })
     .catch((err)=>console.log(err))
 },[id])
-const {image,description,price,price2,brand}=product
-console.log(product)
+const {image,details,price,price2,brand}=product
+console.log(product.image)
 
 function addtocart(obj){
-    axios.post(`https://bharatmart.onrender.com/laptop/`, obj)
+    axios.post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, obj,{
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2Y0NzVjMWE1OTAzMDE2NTBkNTgwNzQiLCJpYXQiOjE2NzcyNDUxNTR9.ten075tYauwUEOpRzQRu4zHPgE1XPnYK79pYpeuFNO4"
+      }
+    })
     .then((res)=>console.log(res))
     .catch((err)=>console.log(err))
+    console.log(obj);
 }
+// pallavi@gmail.com
+// pallavi
 
     return (
    <Box>
@@ -39,7 +48,7 @@ function addtocart(obj){
       </Box>
       <Box id='proDetail' >
         <Heading>{brand}</Heading>
-        <Text>{description}</Text>
+        <Text>{details}</Text>
         <Box id="price" >
         <Text id="price2" >${price2}</Text>
         <Text style={{color:"tomato"}}>${price}</Text>

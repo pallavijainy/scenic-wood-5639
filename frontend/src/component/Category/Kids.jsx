@@ -9,27 +9,22 @@ import {
   Heading,
   Checkbox,
   Select,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   GridItem,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SideBar from "./Sidebar";
 import Pagination from "./Pagination";
-import WomenCard from "./WomenCard";
+import KidsCard from "./KidsCard";
 
-const mens = () => {
+const Kids = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const [color, setColor] = useState(false);
   const [sortdata, setSortdata] = useState("asc");
 
   useEffect(() => {
     axios
       .get(
-        `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=${sortdata}&page=${page}&limit=16`
+        `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sort=${sortdata}&page=${page}&limit=16`
       )
       .then((res) => {
         console.log(res.data);
@@ -43,7 +38,7 @@ const mens = () => {
 
   const sandle = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Sandles&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=Sandles&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -51,7 +46,7 @@ const mens = () => {
   };
   const boots = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=Boots&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=Boots&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -59,7 +54,7 @@ const mens = () => {
   };
   const oxford = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sub_category=LoafersAndOxfords&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&sub_category=LoafersAndOxfords&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -67,7 +62,7 @@ const mens = () => {
   };
   const nike = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=nike&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=nike&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -75,7 +70,7 @@ const mens = () => {
   };
   const vans = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=vans&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=vans&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
@@ -83,21 +78,11 @@ const mens = () => {
   };
   const crocs = async (page) => {
     let res = await fetch(
-      `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&brand=crocs&page=${page}&limit=16`
+      `https://good-rose-kingfisher-tam.cyclic.app/product?category=kids&brand=crocs&page=${page}&limit=16`
     );
     let data = await res.json();
     setData(data);
     console.log(data);
-  };
-  const wrap = () => {
-    const colordiv = document.getElementById("color");
-    setColor(!color);
-    console.log(color);
-    if (color === true) {
-      colordiv.display = "none";
-    } else {
-      colordiv.display = "visible";
-    }
   };
   // --------------------------------------
 
@@ -107,8 +92,8 @@ const mens = () => {
         {/* ---------------------------------------------------- */}
 
         <Box w="20%" border="1px solid red">
-          <Heading color="gray">Women's Shoes</Heading>
-          <Text>Shoes/Women</Text>
+          <Heading color="gray">Kids Shoes</Heading>
+          <Text>Shoes/Kids</Text>
 
           <Select
             onChange={(e) => {
@@ -165,68 +150,48 @@ const mens = () => {
             <Text>Sketchers</Text>
           </Stack>
           <Stack margin="auto" justifyContent="left" alignItems="center">
-            <Box marginTop={"5px"} id="color" onClick={wrap} display="none">
-              Color
-              {/* <Text fontWeight="bold" >Color</Text> */}
-              <Flex>
-                <Text h="35px" w="35px" backgroundColor="black"></Text>
-                <Text>Black</Text>
-              </Flex>
-              <Flex>
-                <Text
-                  h="35px"
-                  w="35px"
-                  backgroundColor="brown"
-                  margin="3px"
-                ></Text>
-                <Text>Brown</Text>
-              </Flex>
-              <Flex>
-                <Text
-                  border="1px solid black"
-                  h="35px"
-                  w="35px"
-                  backgroundColor="White"
-                  margin="3px"
-                ></Text>
-                <Text>White</Text>
-              </Flex>
-              <Flex>
-                <Text
-                  h="35px"
-                  w="35px"
-                  backgroundColor="gray"
-                  margin="3px"
-                ></Text>
-                <Text>Gray</Text>
-              </Flex>
-              <Flex>
-                <Text
-                  h="35px"
-                  w="35px"
-                  backgroundColor="teal"
-                  margin="3px"
-                ></Text>
-                <Text>Teal</Text>
-              </Flex>
-            </Box>
-            {/* <Menu>
-    <MenuButton w='100%' p="10px 20px">
-      <Flex>
-        <Text>
-Brand +
-        </Text>
-        
-      </Flex>
-    </MenuButton>
-    <MenuList borderRadius='none'>
-      <MenuItem w='100%' p="10px 20px" border='none' >Nike</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Vans</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Crocs</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Converse</MenuItem>
-      <MenuItem w='100%' p="10px 20px" border='none'>Sketchers</MenuItem>
-    </MenuList>
-   </Menu> */}
+            <Text fontWeight="bold">Color</Text>
+            <Flex>
+              <Text h="35px" w="35px" backgroundColor="black"></Text>
+              <Text>Black</Text>
+            </Flex>
+            <Flex>
+              <Text
+                h="35px"
+                w="35px"
+                backgroundColor="brown"
+                margin="3px"
+              ></Text>
+              <Text>Brown</Text>
+            </Flex>
+            <Flex>
+              <Text
+                border="1px solid black"
+                h="35px"
+                w="35px"
+                backgroundColor="White"
+                margin="3px"
+              ></Text>
+              <Text>White</Text>
+            </Flex>
+            <Flex>
+              <Text
+                h="35px"
+                w="35px"
+                backgroundColor="gray"
+                margin="3px"
+              ></Text>
+              <Text>Gray</Text>
+            </Flex>
+            <Flex>
+              <Text
+                h="35px"
+                w="35px"
+                backgroundColor="teal"
+                margin="3px"
+              ></Text>
+              <Text>Teal</Text>
+            </Flex>
           </Stack>
           <Stack>
             <Text fontWeight="bold">Size</Text>
@@ -273,7 +238,7 @@ Brand +
               return (
                 <GridItem key={e.id}>
                   {/* mapping in card */}
-                  <WomenCard
+                  <KidsCard
                     image={e.image}
                     id={e._id}
                     brand={e.brand}
@@ -301,4 +266,4 @@ Brand +
     </>
   );
 };
-export default mens;
+export default Kids;

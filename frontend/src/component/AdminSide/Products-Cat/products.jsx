@@ -27,7 +27,7 @@ const Products = () => {
   const toast = useToast();
   const [datas, setDatas] = useState([]);
   const [page, setPage] = useState(1);
-  const [category, setCategory] = useState("Mens");
+  const [category, setCategory] = useState("mens");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
@@ -35,104 +35,107 @@ const Products = () => {
   const [mid, msetId] = useState("");
 
   // on enter Search
-  const handleKeyDown = (e) => {
-    let data_input = e.target.value.split("");
-    let convert = data_input[0]?.toUpperCase();
-    data_input[0] = convert;
-    let searchedData = data_input.join("");
-    if (e.key === "Enter") {
-      // searchTheData(searchedData);
-    }
-  };
+  // const handleKeyDown = (e) => {
+  //   let data_input = e.target.value.split("");
+  //   let convert = data_input[0]?.toUpperCase();
+  //   data_input[0] = convert;
+  //   let searchedData = data_input.join("");
+  //   if (e.key === "Enter") {
+  //     searchTheData(searchedData);
+  //   }
+  // };
   // const searchTheData = async (searchedData) => {
   //   let res = await axios.get(
-  //     `dummyData/AllProducts`
+  //     `https://good-rose-kingfisher-tam.cyclic.app/product?details=${searchedData}`
   //   );
   //   let data = await res.data;
   //   data = data.filter((el) => {
   //     return el.product_title.match(searchedData);
   //   });
   //   setDatas(data);
-  //   // console.log(data);
+  //   console.log(data, searchedData);
   // };
   // `````````````````````````````````toggle Status```````````````````
-  // const handleToggleStatus = (id, active) => {
-  //   axios
-  //     .patch(`dummyData/${category}/${id}`, {
-  //       active: !active,
-  //     })
-  //     .then((res) => {
-  //       handleGetData();
-  //       active
-  //         ? toast({
-  //             title: "Deactivated Successfully",
-  //             status: "error",
-  //             duration: 3000,
-  //             isClosable: true,
-  //           })
-  //         : toast({
-  //             title: "Activated Successfully",
-  //             status: "success",
-  //             duration: 3000,
-  //             isClosable: true,
-  //           });
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const handleToggleStatus = (id, active) => {
+    axios
+      .patch(
+        `https://good-rose-kingfisher-tam.cyclic.app/product/update/${id}`,
+        {
+          active: !active,
+        }
+      )
+      .then((res) => {
+        handleGetData();
+        active
+          ? toast({
+              title: "Deactivated Successfully",
+              status: "error",
+              duration: 3000,
+              isClosable: true,
+            })
+          : toast({
+              title: "Activated Successfully",
+              status: "success",
+              duration: 3000,
+              isClosable: true,
+            });
+      })
+      .catch((err) => console.log(err));
+  };
 
   // ``````````````````````````````````````````````````````` Editable Modal ````````````````````````````````
-  // const handleOpenDetails = (id, image, price, title) => {
-  //   setTitle(title);
-  //   setPrice(price);
-  //   SetImage(image);
-  //   msetId(id);
-  //   onOpen();
-  // };
+  const handleOpenDetails = (id, image, price, title) => {
+    setTitle(title);
+    setPrice(price);
+    SetImage(image);
+    msetId(id);
+    onOpen();
+  };
   //````````````````````````````````````````````````````Update Listings```````````````````````````````````````````
 
-  // const handleGetData = () => {
-  //   axios
-  //     .get(
-  //       `dummyData/${category}?_limit=10&_page=${page}`
-  //     )
-  //     .then((res) => setDatas(res.data))
-  //     .catch((err) => console.log(err));
-  // };
-  // useEffect(() => {
-  //   handleGetData();
-  // }, [page, category]);
+  const handleGetData = () => {
+    axios
+      .get(
+        `https://good-rose-kingfisher-tam.cyclic.app/product?category=${category}&limit=10&page=${page}`
+      )
+      .then((res) => setDatas(res.data))
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    handleGetData();
+  }, [page, category]);
 
   //```````````````````````````````````````````````````````````` submit modal data`````````````````````````````
-  // const handleSubmitModalDetails = () => {
-  //   let dataToSend = {
-  //     product_title: title,
-  //     product_price: +price,
-  //     product_photo: image,
-  //   };
+  const handleSubmitModalDetails = () => {
+    let dataToSend = {
+      details: title,
+      price: +price,
+      image: image,
+    };
 
-  //   axios
-  //     .patch(
-  //       `dummyData/${category}/${mid}`,
-  //       dataToSend
-  //     )
-  //     .then((res) => {
-  //       handleGetData();
-  //       toast({
-  //         title: "Updated Successfully",
-  //         status: "success",
-  //         duration: 3000,
-  //         isClosable: true,
-  //       });
-  //     })
-  //     .catch((res) => {
-  //       toast({
-  //         title: "Invalid Request",
-  //         status: "Error",
-  //         duration: 3000,
-  //         isClosable: true,
-  //       });
-  //     });
-  // };
+    axios
+      .patch(
+        `https://good-rose-kingfisher-tam.cyclic.app/product/update/${mid}`,
+        dataToSend
+      )
+      .then((res) => {
+        handleGetData();
+        toast({
+          title: "Updated Successfully",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((res) => {
+        toast({
+          title: "Invalid Request",
+          status: "Error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  };
 
   return (
     <Box
@@ -148,12 +151,12 @@ const Products = () => {
       <Box mt={"30px"} w={"100%"}>
         <Box display={"flex"} justifyContent={"space-between"} mb={"20px"}>
           {/* input search */}
-          <Input
+          {/* <Input
             type={"text"}
             placeholder="Search Listings.."
             w={{ base: "40%", md: "35%", lg: "25%" }}
             onKeyDown={handleKeyDown}
-          ></Input>
+          ></Input> */}
           {/* select option */}
           <Select
             // variant="flushed"
@@ -170,18 +173,6 @@ const Products = () => {
             </option>
             <option style={{ backgroundColor: "#0c0e1f" }} value="kids">
               Kids
-            </option>
-            <option style={{ backgroundColor: "#0c0e1f" }} value="Boots">
-              Boots
-            </option>
-            <option style={{ backgroundColor: "#0c0e1f" }} value="Sandles">
-              Sandles
-            </option>
-            <option
-              style={{ backgroundColor: "#0c0e1f" }}
-              value="LoafersAndOxfords"
-            >
-              Loafers_&_Oxfords
             </option>
           </Select>
         </Box>
@@ -242,15 +233,15 @@ const Products = () => {
                 <Text>STATUS</Text>
               </Box>
             </Box>
-            {/* {datas.map((el, i) => (
+            {datas.map((el, i) => (
               <ProductItems
-                key={el.id}
+                key={el._id}
                 i={i}
                 {...el}
                 handleOpenDetails={handleOpenDetails}
                 handleToggleStatus={handleToggleStatus}
               />
-            ))} */}
+            ))}
           </SimpleGrid>
         </Box>
       </Box>
@@ -310,7 +301,7 @@ const Products = () => {
                   console.log(e.target.value);
                 }}
               >
-                {/* Title- {modalDetail.product_title} */}
+                {/* Title- {modalDetail.image} */}
               </Input>
               <Text mt={"10px"}>Title:- </Text>
               <Input
@@ -322,7 +313,7 @@ const Products = () => {
                   console.log(e.target.value);
                 }}
               >
-                {/* Title- {modalDetail.product_title} */}
+                {/* Title- {modalDetail.details} */}
               </Input>
               <Text mt={"10px"}>Price:- </Text>
               <Input
