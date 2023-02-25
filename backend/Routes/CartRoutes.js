@@ -16,6 +16,16 @@ cartRouter.get("/",Authenticate, async (req, res) => {
   }
 });
 
+cartRouter.get("/admin", async (req, res) => {
+  const userID = req.body.userID;
+  try {
+    const data = await cartModel.find().populate("userID");
+    res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
 cartRouter.post("/add",Authenticate, async (req, res) => {
   try {
     const data = new cartModel(req.body);
