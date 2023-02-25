@@ -315,10 +315,10 @@ const Mens = () => {
           <Grid templateColumns="repeat(4, 1fr)" gap={6}>
             {/* mapping product */}
             {data?.length > 0 &&
-              data.map((e) => {
-                return (
+              data
+                .filter((el) => el.active == true)
+                .map((e) => (
                   <GridItem key={e.id}>
-                    {/* mapping in card */}
                     <MenCard
                       image={e.image}
                       id={e._id}
@@ -328,8 +328,7 @@ const Mens = () => {
                       price={e.price}
                     />
                   </GridItem>
-                );
-              })}
+                ))}
           </Grid>
         </Flex>
         <Box
