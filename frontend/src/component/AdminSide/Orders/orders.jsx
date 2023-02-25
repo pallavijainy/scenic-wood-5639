@@ -19,11 +19,11 @@ const Orders = () => {
   const [userDetails, setUserDetails] = useState([]);
 
   const GetUserOrderDetails = async () => {
-    // let res = await axios.get(
-    //   `dummyData/User-Details`
-    // );
-    // setUserDetails(res.data);
-    // return res.data;
+    let res = await axios.get(
+      `https://good-rose-kingfisher-tam.cyclic.app/order/admin`
+    );
+    setUserDetails(res.data);
+    return res.data;
   };
   useEffect(() => {
     GetUserOrderDetails();
