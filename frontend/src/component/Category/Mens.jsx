@@ -28,16 +28,28 @@ const Mens = () => {
   const [page, setPage] = useState(1);
   const [sortdata, setSortdata] = useState("asc");
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=${sortdata}&page=${page}&limit=16`
-      )
-      .then((res) => {
-        console.log(res.data);
-        setData(res.data);
-      });
-  }, [page, sortdata]);
+
+
+
+
+
+
+
+
+
+
+useEffect(()=>{
+    axios.get(`https://good-rose-kingfisher-tam.cyclic.app/product?category=mens&sort=${sortdata}&page=${page}&limit=16`).then((res)=>{
+        console.log(res.data)
+        setData(res.data)
+        
+    })
+    },[page,sortdata])
+
+
+
+
+
 
   function HandleChange(e) {
     setSortdata(e.target.value);
