@@ -65,7 +65,7 @@ const AdminMenu = () => {
           flexDirection={"column"}
           w={{ md: "30%", lg: "20%" }}
           padding={"15px"}
-          backgroundColor={"#0c0e1f"}
+          backgroundColor={"#033E3E"}
           color={"white"}
           position={"fixed"}
           top={0}

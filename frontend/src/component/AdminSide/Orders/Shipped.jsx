@@ -4,61 +4,36 @@ import React, { useEffect, useState } from "react";
 import { useToast } from "@chakra-ui/react";
 
 const Shipped = ({ GetUserOrderDetails, userDetails }) => {
-  // const [userDetails, setUserDetails] = useState([]);
   const toast = useToast();
 
-  const handleShipOrder = async (oID, uID) => {
-    let response = await GetUserOrderDetails();
-    let UData = response;
-    for (let i = 0; i < UData.length; i++) {
-      if (UData[i].id == uID) {
-        for (let j = 0; j < UData[i].Orders.length; j++) {
-          if (UData[i].Orders[j].id == oID) {
-            if (UData[i].Orders[j].Order_status == "Shipped") {
-              UData[i].Orders[j].Order_status = "Completed";
-            }
-          }
+  const handleCompleteOrder = async (oID, uID) => {
+    console.log(uID, oID);
+    try {
+      let res = await axios.patch(
+        `https://good-rose-kingfisher-tam.cyclic.app/order/orderStatus/${uID}/prod/${oID}`,
+        {
+          order_status: "Completed",
         }
-      }
+      );
+      GetUserOrderDetails();
+      toast({
+        title: "Updated Successfully.",
+        description: "Product Marked as Completed Successfully",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "Invalid Request",
+        description: "Please Try Again",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
     }
-    for (let i = 0; i < UData.length; i++) {
-      if (UData[i].id == uID) {
-        try {
-          let res = await axios.patch(
-            `dummyData/User-Details/${uID}`,
-            UData[i]
-          );
-          GetUserOrderDetails();
-          toast({
-            title: "Updated Successfully.",
-            description: "Product Marked as Completed Successfully",
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          });
-        } catch (error) {
-          toast({
-            title: "Invalid Request",
-            description: "Please Try Again",
-            status: "error",
-            duration: 3000,
-            isClosable: true,
-          });
-        }
-      }
-    }
-    // console.log(UData);
   };
 
-  // const GetUserOrderDetails = async () => {
-  //   let res = await axios.get(`dummyData/User-Details`);
-  //   setUserDetails(res.data);
-  //   return res.data;
-  // };
-
-  // useEffect(() => {
-  //   GetUserOrderDetails();
-  // }, []);
   return (
     <>
       <Box
@@ -117,9 +92,10 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
           <Text>STATUS</Text>
         </Box>
       </Box>
+
       {userDetails.map((user) =>
-        user.Orders.map((order) =>
-          order.Order_status === "Shipped" && order.isOrdered == true ? (
+        user.product.map((order) =>
+          order.order_status === "Shipped" ? (
             <Box
               key={Math.random()}
               boxShadow="rgba(0, 0, 0, 0.4) 0px 1px 4px, rgba(0, 0, 0, 0.3) 0px 5px 10px -1px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset"
@@ -136,19 +112,19 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                   width={{ base: "10%", md: "12%" }}
                   fontSize={{ base: "12px", md: "11px", lg: "14px" }}
                 >
-                  <Text>{user.Name},</Text>
-                  <Text color={"gold"}>{user.Phone}</Text>
+                  <Text>{user.userID.name},</Text>
+                  <Text color={"gold"}>{user.userID.number}</Text>
                 </Box>
                 <Box
                   width={{ base: "10%", md: "17%" }}
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                 >
-                  <Text>{user.Address}</Text>
+                  <Text>{user.address}</Text>
                 </Box>
                 <Box width={{ base: "10%", md: "10%", lg: "7%" }}>
                   <Image
                     width={"80%"}
-                    src={order.product_photo}
+                    src={order.image}
                     alt={order.category}
                   ></Image>
                 </Box>
@@ -157,8 +133,8 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                   width={{ base: "15%", md: "28%" }}
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                 >
-                  <Text>{order.product_title},</Text>
-                  <Text as={"mark"}>{order.id}</Text>
+                  <Text>{order.details},</Text>
+                  <Text as={"mark"}>{order._id}</Text>
                 </Box>
 
                 <Box
@@ -166,14 +142,14 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                   textAlign={"center"}
                 >
-                  <Text color={"gold"}>$ {order.product_price}</Text>
+                  <Text color={"gold"}>$ {order.price}</Text>
                 </Box>
                 <Box
                   width={{ base: "10%", md: "10%" }}
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                   textAlign={"center"}
                 >
-                  <Text>{order.date}</Text>
+                  <Text>{user.time}</Text>
                 </Box>
                 <Box width={{ base: "20%", md: "15%" }} textAlign={"center"}>
                   <Button
@@ -181,7 +157,7 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                     colorScheme={"blue"}
                     p={{ md: 1, lg: 5 }}
                     onClick={() => {
-                      handleShipOrder(order.id, user.id);
+                      handleCompleteOrder(order._id, user._id);
                     }}
                   >
                     Complete
@@ -199,8 +175,8 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                   <Box
                     h="25px"
                     width={"58px"}
-                    border={"1px solid blue"}
-                    bg={"blue.500"}
+                    border={"1px solid Yellow"}
+                    bg={"yellow.500"}
                     mb={"10px"}
                     color="black"
                     display={"flex"}
@@ -208,16 +184,16 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                     alignItems={"center"}
                   >
                     <Text as="b" fontSize={{ base: "10px", sm: "12px" }}>
-                      Shipped
+                      Pending
                     </Text>
                   </Box>
                   <Image
                     width={{ base: "60%", sm: "40%" }}
-                    src={order.product_photo}
+                    src={order.image}
                     alt={order.category}
                   ></Image>
                   <Text fontWeight={"bold"} fontSize={"lg"} mt={"20px"}>
-                    $ {order.product_price}
+                    $ {order.price}
                   </Text>
                 </Box>
                 {/* ```````````````````````````````````right Div````````````````````````````` */}
@@ -229,28 +205,28 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                 >
                   <Box>
                     <Text fontSize={{ base: "13px", sm: "14px" }}>
-                      {order.product_title}
+                      {order.details}
                     </Text>
                     <Text
                       as={"mark"}
                       mt={"10px"}
                       fontSize={{ base: "12px", sm: "13px" }}
                     >
-                      ID- {order.id}
+                      ID- {order._id}
                     </Text>
                     <Text
                       fontWeight={"bold"}
                       mt={"10px"}
                       fontSize={{ base: "13px", sm: "14px" }}
                     >
-                      {user.Name}, {user.Phone}
+                      {user.userID.name}, {user.userID.number}
                     </Text>
                     <Text
                       fontWeight={"bold"}
                       mt={"10px"}
                       fontSize={{ base: "13px", sm: "14px" }}
                     >
-                      {user.Address}
+                      {user.address},{user.city},{user.pincode}
                     </Text>
                   </Box>
 
@@ -259,7 +235,7 @@ const Shipped = ({ GetUserOrderDetails, userDetails }) => {
                     size={"sm"}
                     colorScheme={"blue"}
                     onClick={() => {
-                      handleShipOrder(order.id, user.id);
+                      handleCompleteOrder(order._id, user._id);
                     }}
                   >
                     Complete

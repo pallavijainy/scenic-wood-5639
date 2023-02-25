@@ -1,69 +1,6 @@
-import {
-  Box,
-  Button,
-  Image,
-  Text,
-  Alert,
-  AlertIcon,
-  useToast,
-} from "@chakra-ui/react";
-import axios from "axios";
+import { Box, Button, Image, Text } from "@chakra-ui/react";
 import React from "react";
 const Return = ({ GetUserOrderDetails, userDetails }) => {
-  const toast = useToast();
-  const date = new Date();
-  const handleShipOrder = async (oID, uID) => {
-    let response = await GetUserOrderDetails();
-    let UData = response;
-    for (let i = 0; i < UData.length; i++) {
-      if (UData[i].id == uID) {
-        for (let j = 0; j < UData[i].Orders.length; j++) {
-          if (UData[i].Orders[j].id == oID) {
-            if (UData[i].Orders[j].Order_status == "Shipped") {
-              UData[i].Orders[j].Order_status = "Completed";
-            }
-          }
-        }
-      }
-    }
-    for (let i = 0; i < UData.length; i++) {
-      if (UData[i].id == uID) {
-        try {
-          let res = await axios.patch(
-            `dummyData/User-Details/${uID}`,
-            UData[i]
-          );
-          GetUserOrderDetails();
-          toast({
-            title: "Updated Successfully.",
-            description: "Product Marked as Completed Successfully",
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          });
-        } catch (error) {
-          toast({
-            title: "Invalid Request",
-            description: "Please Try Again",
-            status: "error",
-            duration: 3000,
-            isClosable: true,
-          });
-        }
-      }
-    }
-    // console.log(UData);
-  };
-
-  // const GetUserOrderDetails = async () => {
-  //   let res = await axios.get(`dummyData/User-Details`);
-  //   setUserDetails(res.data);
-  //   return res.data;
-  // };
-
-  // useEffect(() => {
-  //   GetUserOrderDetails();
-  // }, []);
   return (
     <>
       <Box
@@ -122,10 +59,10 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
           <Text>STATUS</Text>
         </Box>
       </Box>
+
       {userDetails.map((user) =>
-        user.Orders.map((order) =>
-          order.Order_status === "Cancelled" ? (
-            // && order.isOrdered == false
+        user.product.map((order) =>
+          order.order_status === "Returned" ? (
             <Box
               key={Math.random()}
               boxShadow="rgba(0, 0, 0, 0.4) 0px 1px 4px, rgba(0, 0, 0, 0.3) 0px 5px 10px -1px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset"
@@ -142,19 +79,19 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                   width={{ base: "10%", md: "12%" }}
                   fontSize={{ base: "12px", md: "11px", lg: "14px" }}
                 >
-                  <Text>{user.Name},</Text>
-                  <Text color={"gold"}>{user.Phone}</Text>
+                  <Text>{user.userID.name},</Text>
+                  <Text color={"gold"}>{user.userID.number}</Text>
                 </Box>
                 <Box
                   width={{ base: "10%", md: "17%" }}
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                 >
-                  <Text>{user.Address}</Text>
+                  <Text>{user.address}</Text>
                 </Box>
                 <Box width={{ base: "10%", md: "10%", lg: "7%" }}>
                   <Image
                     width={"80%"}
-                    src={order.product_photo}
+                    src={order.image}
                     alt={order.category}
                   ></Image>
                 </Box>
@@ -163,8 +100,8 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                   width={{ base: "15%", md: "28%" }}
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                 >
-                  <Text>{order.product_title},</Text>
-                  <Text as={"mark"}>{order.id}</Text>
+                  <Text>{order.details},</Text>
+                  <Text as={"mark"}>{order._id}</Text>
                 </Box>
 
                 <Box
@@ -172,14 +109,14 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                   textAlign={"center"}
                 >
-                  <Text color={"gold"}>$ {order.product_price}</Text>
+                  <Text color={"gold"}>$ {order.price}</Text>
                 </Box>
                 <Box
                   width={{ base: "10%", md: "10%" }}
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                   textAlign={"center"}
                 >
-                  <Text>{date[Symbol.toPrimitive]("string")}</Text>
+                  <Text>{user.time}</Text>
                 </Box>
                 <Box width={{ base: "20%", md: "15%" }} textAlign={"center"}>
                   <Button
@@ -187,9 +124,6 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                     colorScheme={"red"}
                     p={{ md: 1, lg: 5 }}
                     isDisabled={true}
-                    onClick={() => {
-                      handleShipOrder(order.id, user.id);
-                    }}
                   >
                     Returned
                   </Button>
@@ -206,8 +140,8 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                   <Box
                     h="25px"
                     width={"58px"}
-                    border={"1px solid red"}
-                    bg={"red.500"}
+                    border={"1px solid Yellow"}
+                    bg={"yellow.500"}
                     mb={"10px"}
                     color="black"
                     display={"flex"}
@@ -215,16 +149,16 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                     alignItems={"center"}
                   >
                     <Text as="b" fontSize={{ base: "10px", sm: "12px" }}>
-                      Returned
+                      Pending
                     </Text>
                   </Box>
                   <Image
                     width={{ base: "60%", sm: "40%" }}
-                    src={order.product_photo}
+                    src={order.image}
                     alt={order.category}
                   ></Image>
                   <Text fontWeight={"bold"} fontSize={"lg"} mt={"20px"}>
-                    $ {order.product_price}
+                    $ {order.price}
                   </Text>
                 </Box>
                 {/* ```````````````````````````````````right Div````````````````````````````` */}
@@ -236,28 +170,28 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                 >
                   <Box>
                     <Text fontSize={{ base: "13px", sm: "14px" }}>
-                      {order.product_title}
+                      {order.details}
                     </Text>
                     <Text
                       as={"mark"}
                       mt={"10px"}
                       fontSize={{ base: "12px", sm: "13px" }}
                     >
-                      ID- {order.id}
+                      ID- {order._id}
                     </Text>
                     <Text
                       fontWeight={"bold"}
                       mt={"10px"}
                       fontSize={{ base: "13px", sm: "14px" }}
                     >
-                      {user.Name}, {user.Phone}
+                      {user.userID.name}, {user.userID.number}
                     </Text>
                     <Text
                       fontWeight={"bold"}
                       mt={"10px"}
                       fontSize={{ base: "13px", sm: "14px" }}
                     >
-                      {user.Address}
+                      {user.address},{user.city},{user.pincode}
                     </Text>
                   </Box>
 
@@ -266,9 +200,6 @@ const Return = ({ GetUserOrderDetails, userDetails }) => {
                     size={"sm"}
                     colorScheme={"red"}
                     isDisabled={true}
-                    onClick={() => {
-                      handleShipOrder(order.id, user.id);
-                    }}
                   >
                     Returned
                   </Button>
