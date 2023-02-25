@@ -5,7 +5,7 @@ import Admin from "../../Pages/Admin";
 import Kids from "../Category/Kids";
 import Mens from "../Category/Mens";
 
-import Women from "../Category/Womens";
+
 import HomePage from './../HomePage/HomePage';
 import Payment from "../../Pages/Payment";
 
@@ -15,6 +15,7 @@ import Payment from "../../Pages/Payment";
 import ProductDetails from "../Category/Productdetails";
 import Login from "../LoginSignupPage/Login";
 import Signup from "../LoginSignupPage/Signup";
+import Womens from "../Category/Womens";
 
 
 const AllRoutes = () => {

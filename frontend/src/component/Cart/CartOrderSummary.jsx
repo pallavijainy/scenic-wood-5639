@@ -25,19 +25,19 @@ const OrderSummaryItem = (props) => {
 }
 
 export const CartOrderSummary = (props) => {
-  // const navigate=useNavigate();
+  const navigate=useNavigate();
   const{Total,CartDatalength}=props;
 
   
 
   const handleCheckout=()=>{
     console.log("navigate to payment page")
-    // if (CartDatalength > 0) {
-      //   navigate("/Payment")
-      // }
-      // else {
-      //   alert('Sorry ! cart is Empty Add Some Products')
-      // }
+    if (CartDatalength > 0) {
+        navigate("/payment")
+      }
+      else {
+        alert('Sorry ! cart is Empty Add Some Products')
+      }
   }
   
   console.log("price:",Total);

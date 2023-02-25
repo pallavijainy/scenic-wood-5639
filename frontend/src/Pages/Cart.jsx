@@ -12,7 +12,7 @@ import { ImStopwatch } from "react-icons/im"
 
 const Cart = () => {
     return (
-        <Box w="100%" p="4">
+        <Box w="100%" p="4" mt={"150px"}>
             {/* find store */}
             <Flex alignContent={'space-between'} gap="50%">
                 <Flex>

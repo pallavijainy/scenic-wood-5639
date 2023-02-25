@@ -2,8 +2,7 @@
 import {
   Box,
   Center,
-  useColorModeValue,
-  Heading,
+  
   Text,
   Stack,
   Image,
@@ -11,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import {Link as RouterLink} from "react-router-dom"
 
-export default function MensCard({image,id,price,price2,brand,details}) { 
+const MenCard=({image,id,price,price2,brand,details}) =>{ 
   return (
     <Center py={12}>
       <RouterLink  to={`/product/${id}`} >
@@ -19,42 +18,26 @@ export default function MensCard({image,id,price,price2,brand,details}) {
       <Box
         role={'group'}
         p={6}
-        maxW={'330px'}
+        
         w={'full'}
-        bg={useColorModeValue('white', 'gray.800')}
+       
         // boxShadow={'2xl'}
         rounded={'lg'}
         pos={'relative'}
-        zIndex={1}
+        
         boxShadow= {"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"}
         >
         <Box
+        
           rounded={'lg'}
           mt={-12}
           pos={'relative'}
-          height={'230px'}
-          _after={{
-            transition: 'all .3s ease',
-            content: '""',
-            w: 'full',
-            h: 'full',
-            pos: 'absolute',
-            top: 5,
-            left: 0,
-            // backgroundImage: `url(${IMAGE})`,
-            filter: 'blur(15px)',
-            zIndex: -1,
-          }}
-          _groupHover={{
-            _after: {
-              filter: 'blur(20px)',
-            },
-          }}>
+          height={'150px'}>
           <Image
             rounded={'lg'}
            
-            width={"100%"}
-            
+            width={"80%"}
+           
             src={image}
           />
         </Box>
@@ -85,3 +68,5 @@ export default function MensCard({image,id,price,price2,brand,details}) {
     </Center>
   );
 }
+
+export default MenCard;
