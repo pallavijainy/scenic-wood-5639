@@ -1,6 +1,7 @@
-import { CloseButton, Flex, Link, Select, useColorModeValue } from '@chakra-ui/react'
+import { CloseButton, Flex, Link, Select, useColorModeValue, useToast } from '@chakra-ui/react'
 import { PriceTag } from './PriceTag'
 import { CartProductMeta } from './CartProductMeta'
+import axios from "axios"
 const QuantitySelect = (props) => {
   return (
     <Select
@@ -20,6 +21,7 @@ const QuantitySelect = (props) => {
 }
 
  const CartItem = (props) => {
+   const toast = useToast()
   // const {
   //   isGiftWrapping,
   //   name,
@@ -32,21 +34,20 @@ const QuantitySelect = (props) => {
   //   onClickDelete,
   // } = props
   const {
-      id,
+      _id,
       brand,
       details,
       size,
       image,
-      currency,
+      price,
       price2,
+      currency,
       onChangeQuantity,
-      // onClickDelete,
+      onClickDelete,
     } = props
     const quantity=1;
 
-    const onClickDelete=()=>{
-        console.log("element deleted")
-    }
+    
 
   return (
     <Flex
@@ -80,8 +81,8 @@ const QuantitySelect = (props) => {
             onChangeQuantity?.(+e.currentTarget.value)
           }}
         />
-        <PriceTag price={price2} currency={currency} />
-        <CloseButton aria-label={`Delete ${details} from cart`} colorScheme="red" onClick={onClickDelete} />
+        <PriceTag price={price} currency={currency} />
+        <CloseButton aria-label={`Delete ${details} from cart`} colorScheme="red" onClick={()=>{onClickDelete(_id)}} />
       </Flex>
 
       {/* Mobile */}
@@ -104,7 +105,7 @@ const QuantitySelect = (props) => {
             onChangeQuantity?.(+e.currentTarget.value)
           }}
         />
-        <PriceTag price={price2} currency={currency} />
+        <PriceTag price={price} currency={currency} />
       </Flex>
     </Flex>
   )

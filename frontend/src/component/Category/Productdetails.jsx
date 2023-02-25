@@ -4,8 +4,8 @@ import { useState,useEffect } from 'react';
 import {  Grid,Box,Flex,Stack,Text,Heading,Image,Button,UnorderedList,ListItem,useToast
     } from "@chakra-ui/react"
 
-import axios from "axios";
-import { Link as RouterLink } from "react-router-dom";
+import axios from 'axios';
+  import {Link as RouterLink} from "react-router-dom"
 
   import {useParams} from "react-router-dom"
 
@@ -15,46 +15,51 @@ import { Link as RouterLink } from "react-router-dom";
     const {id} = useParams()
     const toast = useToast()
 
-  useEffect(() => {
+useEffect(()=>{
     axios
-      .get(`https://good-rose-kingfisher-tam.cyclic.app/product/${id}`)
-      .then(({ data }) => {
-        setProduct(data[0]);
-        console.log("data", data[0]);
-      })
-      .catch((err) => console.log(err));
-  }, [id]);
-  const { image, details, price, price2, brand } = product;
-  console.log(product.image);
+    .get(`https://good-rose-kingfisher-tam.cyclic.app/product/${id}`)
+    .then(({data})=>{
+        setProduct(data[0])
+        console.log("data",data[0]);
+    })
+    .catch((err)=>console.log(err))
+},[id])
+const {image,details,price,price2,brand}=product
+console.log(product.image)
 
-function addtocart(obj){
-  toast({
-    title: 'Item Added',
-    description: "Item is Added To Cart.",
-    status: 'success',
-    duration: 9000,
-    isClosable: true,
-  })
-    axios.post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, obj,{
+function addtocart(){
+    axios.post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, product,{
       headers:{
         "Content-Type":"application/json",
-        "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2Y0NzVjMWE1OTAzMDE2NTBkNTgwNzQiLCJpYXQiOjE2NzcyNDUxNTR9.ten075tYauwUEOpRzQRu4zHPgE1XPnYK79pYpeuFNO4"
+        "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2Y5ZDNkMjY0NTg2NGRhNDIzYjZiNGYiLCJpYXQiOjE2NzczMTcwOTJ9.cxNf9jgT-B2TcAuR-7dpWbmWBjs5ZiK_FYn9I2KDCGs"
       }
     })
-    .then((res)=>console.log(res))
-    .catch((err)=>console.log(err))
+    .then((res)=>{
+      toast({
+        title: 'Item Added',
+        description: "Item is Added To Cart.",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
+      console.log(res)})
+    .catch((err)=>{
+      toast({
+        title: 'Error',
+        description: "Something Went Wrong",
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      })
+      console.log(err)})
     console.log(obj);
-  }
-  // pallavi@gmail.com
-  // pallavi
-
- 
+}
 // pallavi@gmail.com
 // pallavi
 
     return (
      
-   <Box>
+   <Box mt={"200px"}> 
     {/* navbar---- */}
    
     <Box id='detail'>
@@ -81,7 +86,7 @@ function addtocart(obj){
 
         <Button
         
-        margin="15px" w="170px" backgroundColor="#333f48" color="white"  marginLeft="47%" onClick={()=>addtocart(product)}  >Add To Cart</Button>
+        margin="15px" w="170px" backgroundColor="#333f48" color="white"  marginLeft="47%" onClick={()=>addtocart()}  >Add To Cart</Button>
             
            
         </Box>

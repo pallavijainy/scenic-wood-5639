@@ -17,6 +17,7 @@ import Payment from "../../Pages/Payment";
 
 import Login from "../LoginSignupPage/Login";
 import Signup from "../LoginSignupPage/Signup";
+import Womens from "../Category/Womens";
 
 
 const AllRoutes = () => {

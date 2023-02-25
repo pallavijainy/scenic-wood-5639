@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Divider,
   Input,
   InputGroup,
@@ -10,12 +11,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import image from "./image/Shoe-Land-1.png";
 import "./navbar.css";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import {HiOutlineShoppingCart} from "react-icons/hi"
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
+import ProfileIcon from './../MyAccount/ProfileIcon/ProfileIcon';
+
 
 const Navbar = () => {
+  let token = JSON.parse(sessionStorage.getItem("token"))
   return (
     <Box id="nav" p={{ base: "10px", md: "none" }}>
       <Box
@@ -46,10 +49,11 @@ const Navbar = () => {
                 <InputRightAddon children={<SearchIcon />} />
               </InputGroup>
             </Box>
-            <Box display={"flex"} gap="30px">
-              <AccountCircleIcon fontSize="large" />
+            <Box display={"flex"} gap="30px" justifyContent={"center"} alignItems="center">
+              {token?.length>0?<ProfileIcon/> :null }
+            
               <FavoriteBorderIcon fontSize="large" />
-              <Link to="/cart"><ShoppingCartIcon fontSize="large" /></Link>
+              <Link to="/cart"><HiOutlineShoppingCart fontSize="37px" /></Link>
             </Box>
           </Box>
 

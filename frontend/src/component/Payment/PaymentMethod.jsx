@@ -14,7 +14,7 @@ const PaymentMethod = () => {
                 isClosable: true,
               })
               console.log("home page")
-            //   navigate("/home page");
+              navigate("/");
         },2000)
         
     }

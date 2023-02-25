@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import {Link as RouterLink} from "react-router-dom"
 
-export default function MensCard({image,id,price,price2,brand,details}) { 
+const MenCard=({image,id,price,price2,brand,details}) =>{ 
   return (
     <Center py={12}>
       <RouterLink  to={`/product/${id}`} >
@@ -68,3 +68,5 @@ export default function MensCard({image,id,price,price2,brand,details}) {
     </Center>
   );
 }
+
+export default MenCard;
