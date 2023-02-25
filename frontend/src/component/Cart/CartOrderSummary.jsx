@@ -64,7 +64,8 @@ export const CartOrderSummary = (props) => {
             Total
           </Text>
           <Text fontSize="xl" fontWeight="extrabold">
-            {formatPrice(`${Total+14.99}`)}
+            {/* {formatPrice(`${Total+14.99}`)} */}
+            {CartDatalength>0? formatPrice(`${Total+14.99}`):formatPrice(`${0.00}`)}
           </Text>
         </Flex>
       </Stack>
@@ -73,4 +74,4 @@ export const CartOrderSummary = (props) => {
       </Button>
     </Stack>
   )
-}
+  }

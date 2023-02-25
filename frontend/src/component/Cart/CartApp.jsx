@@ -18,7 +18,7 @@ import axios from "axios"
 export const CartApp = () => {
 const toast  = useToast()
 const [cartData,setCartData] = useState([])
-const Total = cartData.reduce((sum, el) => sum += el.price2 * 1, 0)
+const Total = cartData.reduce((sum, el) => sum += el.price * 1, 0)
 // get cart data of perticular user
 const getCartData = ()=>{
   axios.get(`https://good-rose-kingfisher-tam.cyclic.app/cart`,{

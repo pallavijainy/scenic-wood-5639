@@ -1,25 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, FormLabel, Grid,Button, GridItem, Flex, Image, Heading, Input, Container, Spacer, Radio, RadioGroup, Stack, Text, Center } from "@chakra-ui/react"
 import { useToast } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import Pin from './Pin'
+
 
 const PaymentMethod = () => {
     const toast = useToast()
-    const navigate=useNavigate
-    const handlePay=()=>{
-        setTimeout(()=>{
-            toast({
-                title: `Payment successful`,
-                status: "success",
-                isClosable: true,
-              })
-              console.log("home page")
-              navigate("/");
-        },2000)
-        
-    }
+    const [name,setName]=useState();
+    const [cnumber,setCnumber]=useState();
+    const [cdate,setCdate]=useState();
+    const [cvv,setCvv]=useState();
+    
     return (
-        <Box w="100%" alignContent={"center"} boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"} p="10" m="auto">
+        <Box w="90%" alignContent={"center"} boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"} p="10" m="auto">
             <Heading mb={4}>Payment Information</Heading>
             <Grid lineHeight={10}>
                 <GridItem>
@@ -77,11 +70,11 @@ const PaymentMethod = () => {
                     CVV/CVC
                 </FormLabel>
                 <Input placeholder="CVC"></Input>
-                <Button w="100%" bgColor={"red"} mt={4} _hover={StyleSheet={bgColor:"red"}} onClick={handlePay}>Pay Now</Button>
-
+                {/* <Button w="100%" bgColor={"red"} color={"black"} mt={4} _hover={StyleSheet={bgColor:"red"}} onClick={handlePay}>Pay Now</Button> */}
+                <Pin />
             </Box>
         </Box>
     )
 }
 
-export default PaymentMethod
+export default PaymentMethod    
