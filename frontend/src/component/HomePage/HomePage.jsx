@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import CarouselTop from "./CarouselTop";
 import CarouselLast from "./CarouselLast";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 const HomePage = () => {
   let token = JSON.parse(sessionStorage.getItem("token"));
   return (
     <>
+      <Navbar />
       <Box className="homePage">
         <Box className="home_text" display={{base:"none",md:"flex"}}>
           <Box className="home_text_img" >

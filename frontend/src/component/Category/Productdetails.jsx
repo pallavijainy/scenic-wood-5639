@@ -19,6 +19,7 @@ import axios from "axios";
 import { Link as RouterLink } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 export default function ProductDetails() {
   let token = JSON.parse(sessionStorage.getItem("token"));
@@ -80,94 +81,99 @@ export default function ProductDetails() {
       });
   }
   return (
-    <Box mt={"200px"}>
-      {/* navbar---- */}
+    <>
+      <Navbar />
+      <Box>
+        {/* navbar---- */}
 
-      <Box id="detail">
-        <Flex justifyContent="space-around">
-          <Box w="50%" h="300px" id="prodImage">
-            <Image
-              w="auto"
-              margin="auto"
-              marginTop="30px"
-              src={image}
-              alt={brand}
-            />
-          </Box>
-
-          <Box w="50%" h="300px" id="proDetail">
-            <Heading marginLeft="50%" marginTop="15px">
-              {details}
-            </Heading>
-            <Text
-              fontWeight="bold"
-              color="gray"
-              marginLeft="50%"
-              marginTop="15px"
-            >
-              {brand}
-            </Text>
-            <Box id="price">
-              <Flex marginLeft="50%" w="20%">
-                <Text style={{ color: "tomato" }}>${price}</Text>
-                <Text
-                  textDecoration="line-through"
-                  marginLeft="5px"
-                  id="price2"
-                >
-                  ${price2}
-                </Text>
-              </Flex>
+        <Box id="detail">
+          <Flex justifyContent="space-around">
+            <Box w="50%" h="300px" id="prodImage">
+              <Image
+                w="auto"
+                margin="auto"
+                marginTop="30px"
+                src={image}
+                alt={brand}
+              />
             </Box>
 
-            <Box id="btns">
-              <Text marginLeft="50%" fontWeight="bold">
-                Ship To Address
-              </Text>
-              <Text w="24%" marginLeft="50%">
-                Receive in 4-7 business days with standard
-              </Text>
-
-              <Button
-                margin="15px"
-                w="170px"
-                colorScheme="green"
-                color="white"
-                marginLeft="47%"
-                onClick={() => addtocart()}
+            <Box w="50%" h="300px" id="proDetail">
+              <Heading marginLeft="50%" marginTop="15px">
+                {details}
+              </Heading>
+              <Text
+                fontWeight="bold"
+                color="gray"
+                marginLeft="50%"
+                marginTop="15px"
               >
-                Add To Cart
-              </Button>
-            </Box>
-          </Box>
-        </Flex>
-        <Flex>
-          <Box w="50%" h="300px">
-            <Text fontWeight="bold" marginLeft="20%">
-              Product Details
-            </Text>
-            <UnorderedList>
-              <ListItem marginLeft="20%">
-                Transparent mesh and synthetic upper in a lifestyle sneaker
-                style with a round toe
-              </ListItem>
-              <ListItem marginLeft="20%">Lace-up closure</ListItem>
-              <ListItem marginLeft="20%">Heel pull tab</ListItem>
-              <ListItem marginLeft="20%">Collapsible heel</ListItem>
-              <ListItem marginLeft="20%">
-                Padded tongue for increased comfort
-              </ListItem>
-              <ListItem marginLeft="20%">
-                Soft lining with cushioned insole
-              </ListItem>
-              <ListItem marginLeft="20%">Lifted platform foam midsole</ListItem>
-              <ListItem marginLeft="20%">Durable traction outsole</ListItem>
-            </UnorderedList>
-          </Box>
-        </Flex>
-      </Box>
+                {brand}
+              </Text>
+              <Box id="price">
+                <Flex marginLeft="50%" w="20%">
+                  <Text style={{ color: "tomato" }}>${price}</Text>
+                  <Text
+                    textDecoration="line-through"
+                    marginLeft="5px"
+                    id="price2"
+                  >
+                    ${price2}
+                  </Text>
+                </Flex>
+              </Box>
 
-      {/* footer---------------------- */}
-    </Box>
+              <Box id="btns">
+                <Text marginLeft="50%" fontWeight="bold">
+                  Ship To Address
+                </Text>
+                <Text w="24%" marginLeft="50%">
+                  Receive in 4-7 business days with standard
+                </Text>
+
+                <Button
+                  margin="15px"
+                  w="170px"
+                  colorScheme="green"
+                  color="white"
+                  marginLeft="47%"
+                  onClick={() => addtocart()}
+                >
+                  Add To Cart
+                </Button>
+              </Box>
+            </Box>
+          </Flex>
+          <Flex>
+            <Box w="50%" h="300px">
+              <Text fontWeight="bold" marginLeft="20%">
+                Product Details
+              </Text>
+              <UnorderedList>
+                <ListItem marginLeft="20%">
+                  Transparent mesh and synthetic upper in a lifestyle sneaker
+                  style with a round toe
+                </ListItem>
+                <ListItem marginLeft="20%">Lace-up closure</ListItem>
+                <ListItem marginLeft="20%">Heel pull tab</ListItem>
+                <ListItem marginLeft="20%">Collapsible heel</ListItem>
+                <ListItem marginLeft="20%">
+                  Padded tongue for increased comfort
+                </ListItem>
+                <ListItem marginLeft="20%">
+                  Soft lining with cushioned insole
+                </ListItem>
+                <ListItem marginLeft="20%">
+                  Lifted platform foam midsole
+                </ListItem>
+                <ListItem marginLeft="20%">Durable traction outsole</ListItem>
+              </UnorderedList>
+            </Box>
+          </Flex>
+        </Box>
+
+        {/* footer---------------------- */}
+      </Box>
+    </>
   );
 }
