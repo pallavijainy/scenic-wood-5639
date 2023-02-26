@@ -7,9 +7,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { userModel } = require("../models/user.models");
 const { Validator } = require("../middleware/Validator.middleware");
+const { Authenticate } = require("../middleware/Auth.middleware");
 
 //register
-userRouter.post("/register", Validator,async (req, res) => {
+userRouter.post("/register", Validator, async (req, res) => {
   const { name, email, password, confirmPass, number } = req.body;
   const data = await userModel.find({
     $or: [{ email: email }, { number: number }],
@@ -78,7 +79,7 @@ userRouter.patch("/update/:id", async (req, res) => {
 
 //delete
 
-userRouter.delete("/delete/:id",async (req, res) => {
+userRouter.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -90,16 +91,46 @@ userRouter.delete("/delete/:id",async (req, res) => {
 });
 
 //get
-userRouter.get("/", async(req,res)=>{
-try {
-  const data =await userModel.find()
-res.send(data)
-} catch (error) {
-  res.send(error)
-}
+userRouter.get("/", async (req, res) => {
+  try {
+    const data = await userModel.find();
+    res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
 });
 
+userRouter.patch("/resetPass" , async(req,res)=>{
+  const {email,password} = req.body;
+
+  let data  = await userModel.find({email:email})
+  if(data.length > 0 ){
+
+        bcrypt.hash(password , 3 , async(err,hash)=>{
+          if(err){
+            res.send(err)
+          }else{
+            await userModel.findByIdAndUpdate({"_id" : data[0]._id} , {password:hash , confirmPass:password})
+            res.send("password Reset Successfull")
+          }
+          
+        } )
+  }else{
+    res.send({"msg":"user not found"})
+  }
 
 
+})
+
+
+userRouter.get("/profile",Authenticate, async (req, res) => {
+  const userID = req.body.userID
+  try {
+    const data = await userModel.find({"_id" : userID});
+    res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 module.exports = { userRouter };
