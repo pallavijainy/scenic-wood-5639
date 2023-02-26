@@ -8,7 +8,7 @@ const Footer = () => {
         <Box className="footer_page">
 
             <Box className="email_footer" >
-                <Box>
+                <Box display={{base:"none",md:"flex"}}>
                     <Text>Sign up for special offers & trend updates</Text>
                 </Box>
                 <Box className="inputButton" >
@@ -22,7 +22,7 @@ const Footer = () => {
             </Box>
 
             <Box className="footer_sectin" >
-                <Box className="footer_icon" >
+                <Box className="footer_icon"  display={{base:"none",md:"block"}} >
                     <Text style={{fontWeight: "bold", marginTop: "13px", marginRight: "50px" }} >CONNECT WITH US</Text>
                     <Image src="https://user-images.githubusercontent.com/104529601/220595704-32423a7a-d4be-4060-9b95-bdff1d520a8a.png" alt="icon" />
                 </Box>
