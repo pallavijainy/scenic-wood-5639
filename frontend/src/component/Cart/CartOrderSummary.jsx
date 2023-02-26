@@ -31,7 +31,6 @@ export const CartOrderSummary = (props) => {
   const toast = useToast();
 
   const handleCheckout = () => {
-    console.log("navigate to payment page");
     if (CartDatalength > 0) {
       navigate("/payment");
     } else {

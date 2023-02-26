@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const ProfileIcon = () => {
   const [userDetails, setUserDetails] = useState({});
   const token = JSON.parse(sessionStorage.getItem("token"));
@@ -40,9 +41,18 @@ const ProfileIcon = () => {
         <Avatar name={userDetails.name} src="" size={"md"}></Avatar>
       </MenuButton>
       <MenuList>
-        <MenuItem>My Account</MenuItem>
-        <MenuItem>Orders</MenuItem>
-        <MenuItem>Cart</MenuItem>
+        <Link to={"/myaccount"}>
+          {" "}
+          <MenuItem>My Account</MenuItem>
+        </Link>
+        <Link to={"/myaccount"}>
+          {" "}
+          <MenuItem>Orders</MenuItem>
+        </Link>
+        <Link to={"/cart"}>
+          {" "}
+          <MenuItem>Cart</MenuItem>
+        </Link>
         <MenuDivider />
         <MenuItem fontWeight={"bold"}>{userDetails.email}</MenuItem>
         <MenuItem onClick={handleLogout} color={"red.400"}>

@@ -6,7 +6,9 @@ const LoginModel = () => {
   return (
     <Menu>
       <MenuButton>
-        <Button size={"md"}>Login</Button>
+        <Button variant={"outline"} colorScheme="red" size={"md"}>
+          Login
+        </Button>
       </MenuButton>
       <MenuList>
         <Link to={"/login"}>
