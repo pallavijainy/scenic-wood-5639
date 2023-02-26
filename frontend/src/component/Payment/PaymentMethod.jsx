@@ -19,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import Pin from "./Pin";
 
 const PaymentMethod = ({ handlePay }) => {
   const toast = useToast();
@@ -99,7 +100,7 @@ const PaymentMethod = ({ handlePay }) => {
         {/* CVV/CVC */}
         <FormLabel>CVV/CVC</FormLabel>
         <Input placeholder="CVC"></Input>
-        <Button
+        {/* <Button
           w="100%"
           bgColor={"red"}
           mt={4}
@@ -107,7 +108,8 @@ const PaymentMethod = ({ handlePay }) => {
           onClick={handlePay}
         >
           Pay Now
-        </Button>
+        </Button> */}
+        <Pin handlePay={handlePay} />
       </Box>
     </Box>
   );

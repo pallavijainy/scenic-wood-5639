@@ -37,10 +37,9 @@ export default function ProductDetails() {
       })
       .catch((err) => console.log(err));
   }, [id]);
-  const { image, details, price, price2, brand } = product;
-  console.log(product.image);
 
   function addtocart() {
+    console.log(product);
     axios
       .post(`https://good-rose-kingfisher-tam.cyclic.app/cart/add`, product, {
         headers: {
@@ -80,6 +79,7 @@ export default function ProductDetails() {
         console.log(err);
       });
   }
+  const { image, details, price, price2, brand } = product;
   return (
     <>
       <Navbar />
