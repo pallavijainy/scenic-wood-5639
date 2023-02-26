@@ -15,6 +15,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   GridItem,
+  Divider,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
@@ -94,54 +95,46 @@ const Mens = () => {
 
   return (
     <>
-      <Box marginTop={"200px"}>
+      <Box marginTop={"150px"}>
         {/* add navbar */}
 
         <Flex>
           {/* ---------------------------------------------------- */}
 
-          <Box w="30%">
-            <Heading marginLeft="5px" color="gray">
-              Men's Shoes
-            </Heading>
-            <Text marginLeft="24%" marginTop="10px">
-              Shoes/Mens
-            </Text>
+          <Box w="25%" p={10}>
+            <Heading color="gray">Men's Shoes</Heading>
+            <Text marginTop="10px">Shoes/Mens</Text>
 
             <Select
-              marginLeft="20%"
-              marginTop="15px"
+              mt={5}
+              border={"none"}
+              borderBottom={"1px solid"}
               onChange={(e) => HandleChange(e)}
-              h="25px"
-              w="50%"
               placeholder="Sort By"
             >
               <option value="desc">Price: High to Low</option>
               <option value="asc">Price: Low to High</option>
             </Select>
             <hr />
-            <Heading marginLeft="5px" marginTop="15px" as="h3" size="lg">
+            <Divider mt={6} borderColor={"gray"} />
+            <Heading marginTop="15px" as="h3" size="lg" color={"gray"}>
               Store Pickup
             </Heading>
-            <Stack>
-              <Stack margin={"auto"} direction={["column"]}>
+
+            <Stack mt={5}>
+              <Stack direction={["column"]} spacing={"15px"}>
                 <Checkbox>Red Rock Center</Checkbox>
                 <Checkbox>Guam Premier</Checkbox>
                 <Checkbox isInvalid>Checkbox</Checkbox>
               </Stack>
             </Stack>
-            <hr />
-
-            <hr />
-
-            <hr />
-
+            <Divider mt={6} borderColor={"gray"} />
             {/* --------------------------- */}
-            <Accordion defaultIndex={[0]} allowMultiple>
+            <Accordion defaultIndex={[0]} mt={6} allowMultiple>
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="center">
+                    <Box as="span" textAlign={"left"} flex="1">
                       Category
                     </Box>
                     <AccordionIcon />
@@ -175,7 +168,7 @@ const Mens = () => {
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="center">
+                    <Box as="span" textAlign={"left"} flex="1">
                       Brand
                     </Box>
                     <AccordionIcon />
@@ -205,7 +198,7 @@ const Mens = () => {
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="center">
+                    <Box as="span" textAlign={"left"} flex="1">
                       Color
                     </Box>
                     <AccordionIcon />
@@ -264,7 +257,7 @@ const Mens = () => {
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="center">
+                    <Box as="span" flex="1" textAlign={"left"}>
                       Size
                     </Box>
                     <AccordionIcon />
@@ -331,13 +324,7 @@ const Mens = () => {
                 ))}
           </Grid>
         </Flex>
-        <Box
-          id="paginate"
-          width="25%"
-          justifyContent="center"
-          margin="auto"
-          alignItems="center"
-        >
+        <Box id="paginate" textAlign={"center"}>
           <Pagination
             current={page}
             total={4}

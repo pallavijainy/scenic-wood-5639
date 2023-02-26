@@ -29,7 +29,12 @@ const AccountInfo = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
   const initialRef = React.useRef(null);
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState({
+    Name: "Sarfraj",
+    EmailId: "sarfraj@shoeland.com",
+    Phone: "9245254120",
+    Password: "12345",
+  });
   const [show, setShow] = useState(false);
   const [ids, setIds] = useState(0);
   let adminDetails = {};
@@ -125,7 +130,7 @@ const AccountInfo = () => {
               </Box>
             </InputRightElement>
           </InputGroup>
-          <Button
+          {/* <Button
             onClick={() => {
               handleSetData(
                 details.Name,
@@ -140,9 +145,9 @@ const AccountInfo = () => {
             colorScheme={"blue"}
           >
             Edit Details
-          </Button>
+          </Button> */}
           {/*````````````````````````````````````````````````````` modal````````````````````````````````````````````` */}
-          <Modal
+          {/* <Modal
             initialFocusRef={initialRef}
             isOpen={isOpen}
             onClose={onClose}
@@ -229,7 +234,7 @@ const AccountInfo = () => {
                 </Button>
               </ModalFooter>
             </ModalContent>
-          </Modal>
+          </Modal> */}
         </SimpleGrid>
       </Box>
     </Box>
