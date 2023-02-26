@@ -57,20 +57,6 @@ const Navbar = () => {
         </Box>
         {/* //drawer */}
 
-        {sizes.map((size) => (
-          <Box display={{ base: "block", md: "none" }}>
-            <Button
-              onClick={() => handleClick(size)}
-              key={size}
-              m={4}
-              backgroundColor="black"
-              color={"white"}
-            >
-              {<HamburgerIcon />}
-            </Button>
-          </Box>
-        ))}
-
         <Drawer onClose={onClose} isOpen={isOpen} size={size}>
           <DrawerOverlay />
           <DrawerContent>
@@ -90,39 +76,38 @@ const Navbar = () => {
                   </Text>
                 </Box>
                 <Box display={"flex"} flexDirection="column" mt={"20px"}>
-                <Button as="b">New & Now</Button>
-                <Button as="b">
-                  {" "}
-                  <Link to={"/womens"}>Women</Link>
-                </Button>
-                <Button as="b">
-                  <Link to={"/mens"}>Men</Link>
-                </Button>
-                <Button as="b">
-                  <Link to={"/kids"}> Kids</Link>
-                </Button>
-                <Button as="b">
-                  {" "}
-                  <Link to={"/womens"}>Brands</Link>
-                </Button>
-                <Button as="b">
-                  {" "}
-                  <Link to={"/womens"}>Accessories</Link>
-                </Button>
-                <Button as="b">
-                  {" "}
-                  <Link to={"/womens"}>Sale</Link>
-                </Button>
+                  <Button as="b">New & Now</Button>
+                  <Button as="b">
+                    {" "}
+                    <Link to={"/womens"}>Women</Link>
+                  </Button>
+                  <Button as="b">
+                    <Link to={"/mens"}>Men</Link>
+                  </Button>
+                  <Button as="b">
+                    <Link to={"/kids"}> Kids</Link>
+                  </Button>
+                  <Button as="b">
+                    {" "}
+                    <Link to={"/womens"}>Brands</Link>
+                  </Button>
+                  <Button as="b">
+                    {" "}
+                    <Link to={"/womens"}>Accessories</Link>
+                  </Button>
+                  <Button as="b">
+                    {" "}
+                    <Link to={"/womens"}>Sale</Link>
+                  </Button>
                 </Box>
-               
               </DrawerBody>
             </Box>
           </DrawerContent>
         </Drawer>
 
         {/* //draweer */}
-        <Box>
-          <Box display={"flex"} justifyContent="space-between" mt={"20px"}>
+        <Box width={{base:"100%",md:"auto"}}>
+          <Box display={"flex"}  justifyContent="space-between" mt={"20px"} >
             <Box display={"flex"} justifyContent="space-between">
               <InputGroup display={{ base: "none", md: "flex" }}>
                 <Input
@@ -132,6 +117,20 @@ const Navbar = () => {
                 />
                 <InputRightAddon children={<SearchIcon />} />
               </InputGroup>
+
+              {sizes.map((size, i) => (
+                <Box key={i} display={{ base: "block", md: "none" }}>
+                  <Button
+                    onClick={() => handleClick(size)}
+                    key={size}
+                    backgroundColor="black"
+                    color={"white"}
+                    
+                  >
+                    {<HamburgerIcon />}
+                  </Button>
+                </Box>
+              ))}
             </Box>
             <Box
               display={"flex"}

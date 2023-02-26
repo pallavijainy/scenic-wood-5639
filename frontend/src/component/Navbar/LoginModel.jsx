@@ -6,7 +6,7 @@ const LoginModel = () => {
   return (
     <Menu>
       <MenuButton>
-        <Button variant={"outline"} colorScheme="red" size={"md"}>
+        <Button variant={"outline"} colorScheme="red" size={{base:"sm", md:"md"}} >
           Login
         </Button>
       </MenuButton>
