@@ -11,14 +11,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import image from "./image/Shoe-Land-1.png";
 import "./navbar.css";
-import {HiOutlineShoppingCart} from "react-icons/hi"
+import { HiOutlineShoppingCart } from "react-icons/hi";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SearchIcon from "@mui/icons-material/Search";
-import ProfileIcon from './../MyAccount/ProfileIcon/ProfileIcon';
-
+import ProfileIcon from "./../MyAccount/ProfileIcon/ProfileIcon";
+import LoginModel from "./LoginModel";
 
 const Navbar = () => {
-  let token = JSON.parse(sessionStorage.getItem("token"))
+  let token = JSON.parse(sessionStorage.getItem("token"));
   return (
     <Box id="nav" p={{ base: "10px", md: "none" }}>
       <Box
@@ -27,15 +27,15 @@ const Navbar = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-          <Box
-            className="logo"
-            display={{ base: "center" }}
-            width={{ base: "20%", md: "10%" }}
-          >
-        <Link to={"/"}>
+        <Box
+          className="logo"
+          display={{ base: "center" }}
+          width={{ base: "20%", md: "10%" }}
+        >
+          <Link to={"/"}>
             <img src={image} alt="" />
-        </Link>
-          </Box>
+          </Link>
+        </Box>
 
         <Box>
           <Box display={"flex"} justifyContent="space-between" mt={"20px"}>
@@ -49,11 +49,18 @@ const Navbar = () => {
                 <InputRightAddon children={<SearchIcon />} />
               </InputGroup>
             </Box>
-            <Box display={"flex"} gap="30px" justifyContent={"center"} alignItems="center">
-              {token?.length>0?<ProfileIcon/> :null }
-            
+            <Box
+              display={"flex"}
+              gap="30px"
+              justifyContent={"center"}
+              alignItems="center"
+            >
+              {token?.length > 0 ? <ProfileIcon /> : <LoginModel />}
+
               <FavoriteBorderIcon fontSize="large" />
-              <Link to="/cart"><HiOutlineShoppingCart fontSize="37px" /></Link>
+              <Link to="/cart">
+                <HiOutlineShoppingCart fontSize="37px" />
+              </Link>
             </Box>
           </Box>
 

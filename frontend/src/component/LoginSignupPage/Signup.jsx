@@ -88,9 +88,9 @@ const Signup = () => {
   };
 
   return (
-    <Box mt={"90px"}>
+    <Box mt={"80px"}>
       <Flex
-        pt={"-200px"}
+        // pt={"-200px"}
         minH={"100vh"}
         align={"center"}
         justify={"center"}
@@ -101,9 +101,9 @@ const Signup = () => {
           spacing={8}
           mx={"auto"}
           // maxW={"lg"}
-          width={"33%"}
-          py={12}
-          px={20}
+          width={"35%"}
+          // py={10}
+          // px={20}
           // bg={"whatsapp.50"}
         >
           <Stack align={"center"}>
@@ -188,7 +188,7 @@ const Signup = () => {
                   }}
                   onClick={handleRegister}
                 >
-                  Sign in
+                  Sign Up
                 </Button>
 
                 <Box display={"flex"} justifyContent="center">

@@ -11,13 +11,15 @@ import Payment from "../../Pages/Payment";
 
 import Login from "../LoginSignupPage/Login";
 import Signup from "../LoginSignupPage/Signup";
-
+import Womens from "../Category/Womens";
+import AdminLogin from "../LoginSignupPage/AdminLogin";
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
+      <Route path="/adminLogin" element={<AdminLogin />}></Route>
 
       <Route path="/payment" element={<Payment />} />
 
