@@ -22,6 +22,7 @@ import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import Footer from "../Footer/Footer";
 import MenCard from "./MensCard";
+import Navbar from "../Navbar/Navbar";
 
 const Mens = () => {
   const [data, setData] = useState([]);
@@ -95,13 +96,12 @@ const Mens = () => {
 
   return (
     <>
-      <Box marginTop={"150px"}>
-        {/* add navbar */}
-
+      <Navbar />
+      <Box>
         <Flex>
           {/* ---------------------------------------------------- */}
 
-          <Box w="25%" p={10}>
+          <Box w="35%" p={10}>
             <Heading color="gray">Men's Shoes</Heading>
             <Text marginTop="10px">Shoes/Mens</Text>
 

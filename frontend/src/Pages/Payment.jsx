@@ -4,6 +4,7 @@ import ShippingAddress from "../component/Payment/ShippingAddress";
 import { Grid, GridItem, Box, Center, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../component/Navbar/Navbar";
 
 const Payment = () => {
   const navigate = useNavigate;
@@ -82,25 +83,28 @@ const Payment = () => {
   };
 
   return (
-    <Box m="auto" p="8" style={{ width: "100%" }} mt={"150px"}>
-      <Grid
-        gridTemplateColumns={{
-          base: "repeat(1,1fr)",
-          md: "repeat(1rs,1fr)",
-          xl: "repeat(2,1fr)",
-        }}
-        gap={10}
-      >
-        {/* address section */}
-        <GridItem>
-          <ShippingAddress handleSaveAddress={handleSaveAddress} />
-        </GridItem>
-        {/* payment information  */}
-        <GridItem>
-          <PaymentMethod handlePay={handlePay} />
-        </GridItem>
-      </Grid>
-    </Box>
+    <>
+      <Navbar />
+      <Box m="auto" p="8" style={{ width: "100%" }}>
+        <Grid
+          gridTemplateColumns={{
+            base: "repeat(1,1fr)",
+            md: "repeat(1rs,1fr)",
+            xl: "repeat(2,1fr)",
+          }}
+          gap={10}
+        >
+          {/* address section */}
+          <GridItem>
+            <ShippingAddress handleSaveAddress={handleSaveAddress} />
+          </GridItem>
+          {/* payment information  */}
+          <GridItem>
+            <PaymentMethod handlePay={handlePay} />
+          </GridItem>
+        </Grid>
+      </Box>{" "}
+    </>
   );
 };
 

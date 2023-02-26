@@ -23,6 +23,7 @@ import Pagination from "./Pagination";
 
 import KidsCard from "./KidsCard";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 const kids = () => {
   const [data, setData] = useState([]);
@@ -96,13 +97,14 @@ const kids = () => {
 
   return (
     <>
-      <Box mt={"150px"}>
+      <Navbar />
+      <Box>
         {/* add navbar */}
 
         <Flex>
           {/* ---------------------------------------------------- */}
 
-          <Box w="25%" p={10}>
+          <Box w="35%" p={10}>
             <Heading color="gray">Kid's Shoes</Heading>
             <Text marginTop="10px">Shoes/Kids</Text>
 

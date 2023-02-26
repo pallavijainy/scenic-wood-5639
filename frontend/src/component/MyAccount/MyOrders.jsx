@@ -7,8 +7,8 @@ const MyOrders = () => {
   let token = JSON.parse(sessionStorage.getItem("token"));
   const toast = useToast();
 
-const getOrderData = ()=>{
-  axios
+  const getOrderData = () => {
+    axios
       .get(`https://good-rose-kingfisher-tam.cyclic.app/order/`, {
         headers: {
           "Content-Type": "application/json",
@@ -21,10 +21,10 @@ const getOrderData = ()=>{
       .catch((err) => {
         console.log(err);
       });
-}
+  };
 
   useEffect(() => {
-  getOrderData()
+    getOrderData();
   }, []);
 
   const handleCancelled = async (uID, oID) => {
@@ -36,7 +36,6 @@ const getOrderData = ()=>{
         }
       )
       .then((res) => {
-        
         toast({
           title: "Updated Successfully.",
           description: "Product Cancelled",
@@ -44,11 +43,10 @@ const getOrderData = ()=>{
           duration: 3000,
           isClosable: true,
         });
-        getOrderData()
-        
-        console.log(res)
-      })
-     
+        getOrderData();
+
+        console.log(res);
+      });
   };
 
   return (
