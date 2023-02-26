@@ -76,13 +76,7 @@ const Login = () => {
     <>
       <Navbar />
       <Box>
-        <Flex
-          // minH={"100vh"}
-          align={"center"}
-          justify={"center"}
-          bg={"gray.50"}
-          m="auto"
-        >
+        <Flex align={"center"} justify={"center"} bg={"gray.50"} m="auto">
           <Stack spacing={8} mx={"auto"} width={"35%"} py={12} px={6}>
             <Stack align={"center"}>
               <Heading color={"#002E6E"} fontSize={"4xl"}>

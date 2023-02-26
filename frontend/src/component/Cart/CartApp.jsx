@@ -23,7 +23,7 @@ export const CartApp = () => {
   const [cartData, setCartData] = useState([]);
   let Total = 0;
   if (cartData.length > 0) {
-    Total = cartData.reduce((sum, el) => (sum += el.price2 * 1), 0);
+    Total = cartData.reduce((sum, el) => (sum += el.price * 1), 0);
   }
   // get cart data of perticular user
   const getCartData = () => {

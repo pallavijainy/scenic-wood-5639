@@ -56,7 +56,7 @@ const ShippingAddress = ({ handleSaveAddress }) => {
           onChange={(e) => setCity(e.target.value)}
         ></Input>
         <Button
-          colorScheme="blue"
+          colorScheme="red"
           mt={3}
           onClick={() => {
             handleSaveAddress(name, street, city, pin);
