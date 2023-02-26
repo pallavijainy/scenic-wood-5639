@@ -6,8 +6,9 @@ const MyOrders = () => {
   const [userDetails, setUserDetails] = useState([]);
   let token = JSON.parse(sessionStorage.getItem("token"));
   const toast = useToast();
-  useEffect(() => {
-    axios
+
+const getOrderData = ()=>{
+  axios
       .get(`https://good-rose-kingfisher-tam.cyclic.app/order/`, {
         headers: {
           "Content-Type": "application/json",
@@ -20,33 +21,34 @@ const MyOrders = () => {
       .catch((err) => {
         console.log(err);
       });
+}
+
+  useEffect(() => {
+  getOrderData()
   }, []);
 
   const handleCancelled = async (uID, oID) => {
-    try {
-      let res = await axios.patch(
+    let res = await axios
+      .patch(
         `https://good-rose-kingfisher-tam.cyclic.app/order/orderStatus/${uID}/prod/${oID}`,
         {
           order_status: "Returned",
         }
-      );
-      toast({
-        title: "Updated Successfully.",
-        description: "Product Cancelled",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-      GetUserOrderDetails();
-    } catch (error) {
-      toast({
-        title: "Invalid Request",
-        description: "Please Try Again",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-    }
+      )
+      .then((res) => {
+        
+        toast({
+          title: "Updated Successfully.",
+          description: "Product Cancelled",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        getOrderData()
+        
+        console.log(res)
+      })
+     
   };
 
   return (
