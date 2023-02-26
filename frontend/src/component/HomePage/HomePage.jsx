@@ -13,17 +13,17 @@ const HomePage = () => {
     <>
       <Navbar />
       <Box className="homePage">
-        <Box className="home_text">
-          <Box className="home_text_img">
+        <Box className="home_text" display={{base:"none",md:"flex"}}>
+          <Box className="home_text_img" >
             <Image
               src="https://user-images.githubusercontent.com/104529601/220612628-f256d676-adcc-4e17-8ff1-dcbc47de3ad8.png"
               alt="logo"
             />
-            <Text as="u" style={{ marginTop: "10px" }}>
+            <Text as="u" style={{ marginTop: "10px" }} >
               <Link to={"/#"}>Find a Store</Link>
             </Text>
           </Box>
-          <Box style={{ textAlignLast: "left" }}>
+          <Box style={{ textAlignLast: "left" }} display={{base:"none" , md:"block"}}>
             <Text>Free Shipping for Rewards or Orders $75+</Text>
             <Text as="u">
               {!token && <Link to={"/login"}>Sign In / Join Now</Link>}

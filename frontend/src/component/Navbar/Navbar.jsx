@@ -2,10 +2,19 @@ import {
   Box,
   Button,
   Divider,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Hide,
   Input,
   InputGroup,
   InputRightAddon,
+  Show,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -17,8 +26,18 @@ import SearchIcon from "@mui/icons-material/Search";
 import ProfileIcon from "./../MyAccount/ProfileIcon/ProfileIcon";
 import LoginModel from "./LoginModel";
 
+import { HamburgerIcon } from "@chakra-ui/icons";
+
 const Navbar = () => {
+  const [size, setSize] = React.useState("");
+  const { isOpen, onOpen, onClose } = useDisclosure();
   let token = JSON.parse(sessionStorage.getItem("token"));
+  const sizes = ["full"];
+
+  const handleClick = (newSize) => {
+    setSize(newSize);
+    onOpen();
+  };
   return (
     <Box id="nav" p={{ base: "10px", md: "none" }}>
       <Box
@@ -29,14 +48,79 @@ const Navbar = () => {
       >
         <Box
           className="logo"
-          display={{ base: "center" }}
+          display={{ base: "none", md: "block" }}
           width={{ base: "20%", md: "10%" }}
         >
           <Link to={"/"}>
             <img src={image} alt="" />
           </Link>
         </Box>
+        {/* //drawer */}
 
+        {sizes.map((size) => (
+          <Box display={{ base: "block", md: "none" }}>
+            <Button
+              onClick={() => handleClick(size)}
+              key={size}
+              m={4}
+              backgroundColor="black"
+              color={"white"}
+            >
+              {<HamburgerIcon />}
+            </Button>
+          </Box>
+        ))}
+
+        <Drawer onClose={onClose} isOpen={isOpen} size={size}>
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>
+              {" "}
+              <Link to={"/"} onClick={onClose}>
+                <img src={image} alt="" width={"100px"} />
+              </Link>
+            </DrawerHeader>
+            <Box onClick={onClose}>
+              <DrawerBody>
+                <Box style={{ textAlignLast: "left" }}>
+                  <Text>Free Shipping for Rewards or Orders $75+</Text>
+                  <Text as="u">
+                    {!token && <Link to={"/login"}>Sign In / Join Now</Link>}
+                  </Text>
+                </Box>
+                <Box display={"flex"} flexDirection="column" mt={"20px"}>
+                <Button as="b">New & Now</Button>
+                <Button as="b">
+                  {" "}
+                  <Link to={"/womens"}>Women</Link>
+                </Button>
+                <Button as="b">
+                  <Link to={"/mens"}>Men</Link>
+                </Button>
+                <Button as="b">
+                  <Link to={"/kids"}> Kids</Link>
+                </Button>
+                <Button as="b">
+                  {" "}
+                  <Link to={"/womens"}>Brands</Link>
+                </Button>
+                <Button as="b">
+                  {" "}
+                  <Link to={"/womens"}>Accessories</Link>
+                </Button>
+                <Button as="b">
+                  {" "}
+                  <Link to={"/womens"}>Sale</Link>
+                </Button>
+                </Box>
+               
+              </DrawerBody>
+            </Box>
+          </DrawerContent>
+        </Drawer>
+
+        {/* //draweer */}
         <Box>
           <Box display={"flex"} justifyContent="space-between" mt={"20px"}>
             <Box display={"flex"} justifyContent="space-between">
