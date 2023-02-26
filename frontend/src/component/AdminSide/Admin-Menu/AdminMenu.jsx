@@ -21,6 +21,7 @@ import { AiFillInfoCircle } from "react-icons/ai";
 import React, { useEffect, useRef, useState } from "react";
 import AdminDrawer from "../AdminDrawer";
 import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
 import Dashboard from "../dashboard";
 import Products from "../Products-Cat/products";
 import Orders from "../Orders/orders";
@@ -45,17 +46,7 @@ const AdminMenu = () => {
   //   getAdminData();
   // }, []);
   // console.log(admin);
-  // const handleLogoutAdmin = () => {
-  //   axios
-  //     .patch(`dummyData/Admin-Details`, {
-  //       isAuth: false,
-  //     })
-  //     .then((res) => {
-  //       getAdminData();
-  //       console.log(res);
-  //       route.push("/");
-  //     });
-  // };
+
   return (
     <>
       <Tabs display={"flex"}>
@@ -187,17 +178,20 @@ const AdminMenu = () => {
           >
             Account Info
           </Tab>
-          <Button
-            mt={"5px"}
-            variant={"solid"}
-            borderRadius={"5px"}
-            colorScheme={"red"}
-            // onClick={handleLogoutAdmin}
-            _focus={{ outline: "none" }}
-            border={"none"}
-          >
-            Logout
-          </Button>
+          <Link to={"/"}>
+            {" "}
+            <Button
+              width={"100%"}
+              mt={"5px"}
+              variant={"solid"}
+              borderRadius={"5px"}
+              colorScheme={"red"}
+              _focus={{ outline: "none" }}
+              border={"none"}
+            >
+              Logout
+            </Button>
+          </Link>
         </TabList>
 
         <TabPanels pl={{ md: "32%", lg: "21%" }}>
@@ -275,13 +269,12 @@ const AdminMenu = () => {
                 >
                   {" "}
                   <FiLogOut />{" "}
-                  <Text
-                    ml={"20px"}
-                    fontSize={"md"}
-                    // onClick={handleLogoutAdmin}
-                  >
-                    Logout
-                  </Text>
+                  <Link to={"/"}>
+                    {" "}
+                    <Text ml={"20px"} fontSize={"md"}>
+                      Logout
+                    </Text>
+                  </Link>
                 </Box>
               </MenuItem>
             </MenuList>

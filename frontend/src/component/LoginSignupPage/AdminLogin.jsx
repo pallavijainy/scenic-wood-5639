@@ -15,7 +15,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import ForgetPass from "./ForgetPass";
 
-const Login = () => {
+const AdminLogin = () => {
   const toast = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,48 +26,31 @@ const Login = () => {
       email,
       password,
     };
-    try {
-      fetch(`https://good-rose-kingfisher-tam.cyclic.app/user/login`, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          if (res.msg == "user not found") {
-            toast({
-              status: "error",
-              duration: 3000,
-              title: "User not found!",
-              isClosable: true,
-            });
-          }
-          if (res.msg == "invalid credentials") {
-            toast({
-              status: "error",
-              duration: 3000,
-              title: "Invalid Credentials",
-              isClosable: true,
-            });
-          }
-          if (res.msg == "user logged in") {
-            toast({
-              status: "success",
-              duration: 3000,
-              title: "Log In Successfully!",
-              isClosable: true,
-            });
-            sessionStorage.setItem("token", JSON.stringify(res.token));
-            navigate("/");
-          }
-          console.log(res);
-        })
-        .catch((err) => console.log(err));
-    } catch (err) {
-      console.log(err);
-      alert("Something Wrong");
+    if (email == "" || password == "") {
+      toast({
+        status: "error",
+        duration: 3000,
+        title: "Fill all Details",
+        isClosable: true,
+      });
+      return;
+    }
+    if (email == "sarfraj@shoeland@gmail.com" && password == "sam") {
+      toast({
+        status: "success",
+        duration: 3000,
+        title: "Signed as Admin Successfully",
+        isClosable: true,
+      });
+
+      navigate("/admin");
+    } else {
+      toast({
+        status: "error",
+        duration: 3000,
+        title: "Invalid Credentials",
+        isClosable: true,
+      });
     }
   };
 
@@ -82,8 +65,8 @@ const Login = () => {
       >
         <Stack spacing={8} mx={"auto"} width={"35%"} py={12} px={6}>
           <Stack align={"center"}>
-            <Heading color={"#002E6E"} fontSize={"4xl"}>
-              Log in to your account
+            <Heading color={"red.500"} fontSize={"4xl"}>
+              Admin Login
             </Heading>
           </Stack>
           <Box rounded={"lg"} bg={"gray.50"} boxShadow={"lg"} p={8}>
@@ -119,8 +102,6 @@ const Login = () => {
                   justify={"space-between"}
                 >
                   <Checkbox>Remember me</Checkbox>
-                  {/* <Link color={"blue.400"}>Forgot password?</Link> */}
-                  <ForgetPass />
                 </Stack>
 
                 <Button
@@ -134,15 +115,6 @@ const Login = () => {
                 >
                   Login
                 </Button>
-
-                <Box display={"flex"} justifyContent="center">
-                  <Text as={"span"} textAlign={"center"}>
-                    Dont have Account ?{" "}
-                  </Text>
-                  <Text color="#002E6E" fontWeight="600" as={"span"}>
-                    <Link to={"/signup"}>Sign Up</Link>
-                  </Text>
-                </Box>
               </Stack>
             </Stack>
           </Box>
@@ -152,4 +124,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
