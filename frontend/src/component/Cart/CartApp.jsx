@@ -51,8 +51,7 @@ export const CartApp = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2Y5ZDNkMjY0NTg2NGRhNDIzYjZiNGYiLCJpYXQiOjE2NzczMTcwOTJ9.cxNf9jgT-B2TcAuR-7dpWbmWBjs5ZiK_FYn9I2KDCGs",
+            Authorization: token,
           },
         }
       )

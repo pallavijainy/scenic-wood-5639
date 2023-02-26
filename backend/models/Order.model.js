@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const OrderSchema = mongoose.Schema(
   {
     address: { type: String },
@@ -9,11 +8,8 @@ const OrderSchema = mongoose.Schema(
     totalPrice: { type: Number },
     product: [],
     userID: { type: mongoose.Schema.ObjectId, ref: "user" },
-    
-    
-   
   },
-  { versionKey: false ,timestamps:true}
+  { versionKey: false, timestamps: true }
 );
 
 const OrderModel = mongoose.model("Order", OrderSchema);

@@ -13,6 +13,7 @@ import Login from "../LoginSignupPage/Login";
 import Signup from "../LoginSignupPage/Signup";
 import Womens from "../Category/Womens";
 import AdminLogin from "../LoginSignupPage/AdminLogin";
+import MyAccount from "../MyAccount/MyAccount";
 
 const AllRoutes = () => {
   return (
@@ -20,11 +21,9 @@ const AllRoutes = () => {
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
       <Route path="/adminLogin" element={<AdminLogin />}></Route>
-
+      <Route path="/myaccount" element={<MyAccount />}></Route>
       <Route path="/payment" element={<Payment />} />
-
       <Route path="/cart" element={<Cart />}></Route>
-
       <Route path="/womens" element={<Womens />} />
       <Route path="/mens" element={<Mens />} />
       <Route path="/login" element={<Login />} />

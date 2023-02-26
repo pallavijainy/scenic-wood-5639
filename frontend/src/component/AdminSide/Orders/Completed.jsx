@@ -119,7 +119,7 @@ const Completed = ({ GetUserOrderDetails, userDetails }) => {
                   fontSize={{ base: "12px", md: "12px", lg: "14px" }}
                   textAlign={"center"}
                 >
-                  <Text>{user.time}</Text>
+                  <Text>{new Date(user?.createdAt).toDateString()}</Text>
                 </Box>
                 <Box width={{ base: "20%", md: "15%" }} textAlign={"center"}>
                   <Button
