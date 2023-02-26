@@ -100,6 +100,28 @@ userRouter.get("/", async (req, res) => {
   }
 });
 
+userRouter.patch("/resetPass" , async(req,res)=>{
+  const {email,password} = req.body;
+
+  let data  = await userModel.find({email:email})
+  if(data.length > 0 ){
+
+        bcrypt.hash(password , 3 , async(err,hash)=>{
+          if(err){
+            res.send(err)
+          }else{
+            await userModel.findByIdAndUpdate({"_id" : data[0]._id} , {password:hash , confirmPass:password})
+            res.send("password Reset Successfull")
+          }
+          
+        } )
+  }else{
+    res.send({"msg":"user not found"})
+  }
+
+
+})
+
 
 userRouter.get("/profile",Authenticate, async (req, res) => {
   const userID = req.body.userID
