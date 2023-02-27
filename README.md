@@ -34,13 +34,30 @@ This section has moved here: vercel link [https://shoe-land-hub.vercel.app/] <br
   <hr><br>
 
   <h4>Homepage</h4>
-  <img src="medical-hub/screenshots/Screenshot (145).png" alt="homepage"/>
+  ![Screenshot (832)](https://user-images.githubusercontent.com/107476738/221493287-358d7ffa-c2d5-4121-abc3-839fca4be5e8.png)
+
   <p>Footer of the website</p>
-  <img src="medical-hub/screenshots/Screenshot (146).png" alt="homepage"/>
+ 
+ 
+ 
+ ![Screenshot (833)](https://user-images.githubusercontent.com/107476738/221493347-82b8120d-b589-4145-b7c5-3db3a1f6270d.png)
+
+ 
+ 
   <P>Login form</p>
-  <img src="medical-hub/screenshots/Screenshot (147).png" alt="homepage"/>
+ 
+ 
+ ![Screenshot (834)](https://user-images.githubusercontent.com/107476738/221493376-fcca3648-d22b-4e23-bcb1-7f1057584010.png)
+
+ 
   <p>We have an admin panel in our website</P>
-  <img src="medical-hub/screenshots/Screenshot (148).png" alt="homepage"/>
+ 
+ 
+ 
+ 
+ ![Screenshot (835)](https://user-images.githubusercontent.com/107476738/221493394-65ef2b9b-ea64-430e-bbf0-f564ebee4ad8.png)
+
+ 
   <p>Sign-up form</p>
   <img src="medical-hub/screenshots/Screenshot (150).png" alt="homepage"/>
   <p>Some sort functions based on price and rating</P>
