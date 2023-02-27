@@ -83,7 +83,7 @@ This section has moved here: vercel link [https://shoe-land-hub.vercel.app/] <br
 <h2>Team Members :</h2>
   <li><a href="https://github.com/pallavijainy">
 Pallavi Jain</a></li>
-  <li><a href="">sarfaraj Ahmad Raja</a></li>
+  <li><a href="">Sarfaraj Ahmad RaZa</a></li>
   <li><a href="">
 Kaushik</a></li>
   <li><a href="">Rajat kaswan</a></li>
