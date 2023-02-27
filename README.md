@@ -3,7 +3,8 @@
 <h1 textAlign="center">ShoeLand</h1>
 ## Deployment
 
-This section has moved here: vercel link [https://shoe-land-hub.vercel.app/] <br> 
+This section has moved here: vercel link [https://shoe-land-hub.vercel.app/] <br>
+
 <hr><br>
 <h3>Tech Stack<h3/>
 <li>Express</li>
@@ -66,4 +67,3 @@ Kaushik</a></li>
   <li><a href="">Rajat kaswan</a></li>
   <li><a href="">Ujjawal kumar</a></li>
  <hr><hr>
-  
