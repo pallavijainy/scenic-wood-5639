@@ -66,19 +66,19 @@ const Payment = () => {
         if (res.data == "data is added") {
           // remove all data from cart after payment
 
-          // axios
-          //   .delete(
-          //     `https://good-rose-kingfisher-tam.cyclic.app/cart/removeAll`,
-          //     {
-          //       headers: {
-          //         "Content-Type": "application/json",
-          //         Authorization: token,
-          //       },
-          //     }
-          //   )
-          //   .then((res) => {
-          //     console.log(res.data);
-          //   });
+          axios
+            .delete(
+              `https://good-rose-kingfisher-tam.cyclic.app/cart/removeAll`,
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: token,
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res.data);
+            });
           toast({
             status: "success",
             title: "Order Placed",
