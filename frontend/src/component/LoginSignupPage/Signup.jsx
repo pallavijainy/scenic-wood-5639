@@ -104,7 +104,7 @@ const Signup = () => {
             spacing={8}
             mx={"auto"}
             // maxW={"lg"}
-            width={"35%"}
+            width={{ base: "100%", md: "35%" }}
             // py={10}
             // px={20}
             // bg={"whatsapp.50"}

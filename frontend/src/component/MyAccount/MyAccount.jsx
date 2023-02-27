@@ -31,6 +31,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MyOrders from "./MyOrders";
 import Navbar from "../Navbar/Navbar";
+import { Link } from "react-router-dom";
 const MyAccount = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -109,7 +110,7 @@ const MyAccount = () => {
 
                   <Box marginTop="20px">
                     <Box width="100%">
-                      <FormControl width={{ base: "48%", md: "40%" }}>
+                      <FormControl width={"100%"}>
                         <FormLabel>First name</FormLabel>
                         <Input
                           color={valueColor}
@@ -160,7 +161,7 @@ const MyAccount = () => {
                         </InputRightElement>
                       </InputGroup>
                       {/* change Password */}
-                      {/* <ChangePassword id={"inputUserDetails[0].id"} /> */}
+                      {/* <ChangePassword id={"inputUserDetails.id"} /> */}
                     </FormControl>
                   </Box>
                 </TabPanel>
