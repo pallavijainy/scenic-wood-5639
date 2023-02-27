@@ -47,7 +47,6 @@ This section has moved here: vercel link [https://shoe-land-hub.vercel.app/] <br
  
   <P>Login form</p>
  
- 
  ![Screenshot (834)](https://user-images.githubusercontent.com/107476738/221493376-fcca3648-d22b-4e23-bcb1-7f1057584010.png)
 
  
