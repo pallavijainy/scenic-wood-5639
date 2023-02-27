@@ -143,8 +143,8 @@ const Completed = ({ GetUserOrderDetails, userDetails }) => {
                   <Box
                     h="25px"
                     width={"58px"}
-                    border={"1px solid Yellow"}
-                    bg={"yellow.500"}
+                    border={"1px solid green"}
+                    bg={"green.500"}
                     mb={"10px"}
                     color="black"
                     display={"flex"}
@@ -152,7 +152,7 @@ const Completed = ({ GetUserOrderDetails, userDetails }) => {
                     alignItems={"center"}
                   >
                     <Text as="b" fontSize={{ base: "10px", sm: "12px" }}>
-                      Pending
+                      Delivered
                     </Text>
                   </Box>
                   <Image

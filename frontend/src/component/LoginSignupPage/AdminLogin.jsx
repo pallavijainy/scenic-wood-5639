@@ -36,7 +36,7 @@ const AdminLogin = () => {
       });
       return;
     }
-    if (email == "sarfraj@shoeland@gmail.com" && password == "sam") {
+    if (email == "sarfraj.shoeland@gmail.com" && password == "sam") {
       toast({
         status: "success",
         duration: 3000,
@@ -60,7 +60,13 @@ const AdminLogin = () => {
       <Navbar />
       <Box>
         <Flex align={"center"} justify={"center"} bg={"gray.50"} m="auto">
-          <Stack spacing={8} mx={"auto"} width={"35%"} py={12} px={6}>
+          <Stack
+            spacing={8}
+            mx={"auto"}
+            width={{ base: "100%", md: "35%" }}
+            py={12}
+            px={6}
+          >
             <Stack align={"center"}>
               <Heading color={"red.500"} fontSize={"4xl"}>
                 Admin Login

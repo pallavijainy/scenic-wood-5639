@@ -197,8 +197,24 @@ const MyOrders = () => {
                 <Box
                   h="25px"
                   width={"58px"}
-                  border={"1px solid Yellow"}
-                  bg={"yellow.500"}
+                  border={
+                    order.order_status == "pending"
+                      ? "1px solid yellow"
+                      : order.order_status == "Shipped"
+                      ? "1px solid blue"
+                      : order.order_status == "Returned"
+                      ? "1px solid red"
+                      : "1px solid green"
+                  }
+                  bg={
+                    order.order_status == "pending"
+                      ? "yellow.500"
+                      : order.order_status == "Shipped"
+                      ? "blue.500"
+                      : order.order_status == "Returned"
+                      ? "red.500"
+                      : "green.500"
+                  }
                   mb={"10px"}
                   color="black"
                   display={"flex"}
@@ -206,7 +222,13 @@ const MyOrders = () => {
                   alignItems={"center"}
                 >
                   <Text as="b" fontSize={{ base: "10px", sm: "12px" }}>
-                    Pending
+                    {order.order_status == "pending"
+                      ? "Pending"
+                      : order.order_status == "Shipped"
+                      ? "Shipped"
+                      : order.order_status == "Returned"
+                      ? "Cancelled"
+                      : "Delivered"}
                   </Text>
                 </Box>
                 <Image

@@ -77,7 +77,13 @@ const Login = () => {
       <Navbar />
       <Box>
         <Flex align={"center"} justify={"center"} bg={"gray.50"} m="auto">
-          <Stack spacing={8} mx={"auto"} width={"35%"} py={12} px={6}>
+          <Stack
+            spacing={8}
+            mx={"auto"}
+            width={{ base: "100%", md: "35%" }}
+            py={12}
+            px={6}
+          >
             <Stack align={"center"}>
               <Heading color={"#002E6E"} fontSize={"4xl"}>
                 Log in to your account
