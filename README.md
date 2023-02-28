@@ -1,12 +1,12 @@
-Footwear Website Clone
+#Footwear Website Clone
 This collaborative project involves creating a clone of a footwear website using the Chakra UI library for the user interface, MongoDB for the database, Express for the backend, and React for the frontend. The website will be designed to showcase a variety of footwear products and enable users to browse and purchase items.
 
-Project Overview
+#Project Overview
 The project requires a team effort, with each member contributing their skills and expertise in their respective areas. The Chakra UI library will be used to create a visually appealing and user-friendly interface for the website, while MongoDB will be used to store and manage the product data.
 
 Express will serve as the backend framework, providing RESTful API endpoints for the frontend to interact with. React will be used to develop the frontend, allowing for dynamic updates and real-time user interactions.
 
-Project Goals
+#Project Goals
 The main goals of this project are to:
 
 Create a functional and visually appealing footwear website clone.
@@ -24,7 +24,7 @@ Create a new branch for your changes by running git checkout -b branch-name.
 Make your changes and commit them with descriptive commit messages.
 Push your changes to your forked repository.
 Submit a pull request to the original repository with a description of your changes.
-Conclusion
+#Conclusion
 Overall, this project presents an exciting opportunity for collaboration and learning, as the team works together to build a functional and engaging footwear website clone. By working together and contributing our skills and expertise, we can create a platform that users can trust for their footwear needs.
 
   <h4>Homepage</h4>
