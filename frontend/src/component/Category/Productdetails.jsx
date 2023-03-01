@@ -13,6 +13,7 @@ import {
   UnorderedList,
   ListItem,
   useToast,
+  OrderedList,
 } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -84,34 +85,32 @@ export default function ProductDetails() {
     <>
       <Navbar />
       <Box>
-        {/* navbar---- */}
-
         <Box id="detail">
-          <Flex justifyContent="space-around">
-            <Box w="50%" h="300px" id="prodImage">
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            justifyContent={"space-around"}
+          >
+            <Box w={{ base: "100%", md: "50%" }} id="prodImage" p={5}>
               <Image
-                w="auto"
+                w={{ base: "60%", md: "80%" }}
                 margin="auto"
-                marginTop="30px"
                 src={image}
                 alt={brand}
               />
             </Box>
 
-            <Box w="50%" h="300px" id="proDetail">
-              <Heading marginLeft="50%" marginTop="15px">
-                {details}
-              </Heading>
-              <Text
-                fontWeight="bold"
-                color="gray"
-                marginLeft="50%"
-                marginTop="15px"
-              >
+            <Box
+              w={{ base: "100%", md: "50%" }}
+              margin={"auto"}
+              p={5}
+              id="proDetail"
+            >
+              <Heading marginTop="15px">{details}</Heading>
+              <Text fontWeight="bold" color="gray" marginTop="15px">
                 {brand}
               </Text>
               <Box id="price">
-                <Flex marginLeft="50%" w="20%">
+                <Flex>
                   <Text style={{ color: "tomato" }}>${price}</Text>
                   <Text
                     textDecoration="line-through"
@@ -124,19 +123,13 @@ export default function ProductDetails() {
               </Box>
 
               <Box id="btns">
-                <Text marginLeft="50%" fontWeight="bold">
-                  Ship To Address
-                </Text>
-                <Text w="24%" marginLeft="50%">
-                  Receive in 4-7 business days with standard
-                </Text>
+                <Text fontWeight="bold">Ship To Address</Text>
+                <Text>Receive in 4-7 business days with standard</Text>
 
                 <Button
-                  margin="15px"
-                  w="170px"
                   colorScheme="green"
                   color="white"
-                  marginLeft="47%"
+                  mt={5}
                   onClick={() => addtocart()}
                 >
                   Add To Cart
@@ -145,34 +138,24 @@ export default function ProductDetails() {
             </Box>
           </Flex>
           <Flex>
-            <Box w="50%" h="300px">
-              <Text fontWeight="bold" marginLeft="20%">
-                Product Details
-              </Text>
+            <Box w={{ base: "100%", md: "50%" }} p={5}>
+              <Text fontWeight="bold">Product Details</Text>
               <UnorderedList>
-                <ListItem marginLeft="20%">
+                <ListItem>
                   Transparent mesh and synthetic upper in a lifestyle sneaker
                   style with a round toe
                 </ListItem>
-                <ListItem marginLeft="20%">Lace-up closure</ListItem>
-                <ListItem marginLeft="20%">Heel pull tab</ListItem>
-                <ListItem marginLeft="20%">Collapsible heel</ListItem>
-                <ListItem marginLeft="20%">
-                  Padded tongue for increased comfort
-                </ListItem>
-                <ListItem marginLeft="20%">
-                  Soft lining with cushioned insole
-                </ListItem>
-                <ListItem marginLeft="20%">
-                  Lifted platform foam midsole
-                </ListItem>
-                <ListItem marginLeft="20%">Durable traction outsole</ListItem>
+                <ListItem>Lace-up closure</ListItem>
+                <ListItem>Heel pull tab</ListItem>
+                <ListItem>Collapsible heel</ListItem>
+                <ListItem>Padded tongue for increased comfort</ListItem>
+                <ListItem>Soft lining with cushioned insole</ListItem>
+                <ListItem>Lifted platform foam midsole</ListItem>
+                <ListItem>Durable traction outsole</ListItem>
               </UnorderedList>
             </Box>
           </Flex>
         </Box>
-
-        {/* footer---------------------- */}
       </Box>
     </>
   );

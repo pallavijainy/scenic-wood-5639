@@ -1,93 +1,160 @@
+> 💻 CLONED PROJECT NAME⭐ ====>>>> ✨Famous Footwear💫
+> <br>
 
+[![Backend Repo Link](https://img.shields.io/badge/Backend_Repo_Link-0A66C2?style=for-the-badge&logo=github&logoColor=#FF7139)](https://github.com/shikhu51197/backendcruise)
+[![Deploy to Cyclic](https://img.shields.io/badge/Deployed_Cyclic_Link-0A66C2?style=for-the-badge&logo=ko-fi&logoColor=white)](https://good-rose-kingfisher-tam.cyclic.app/)
 
+## [![Deployed App Vercel Link](https://img.shields.io/badge/Deployed_App_Vercel_Link-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://shoe-land-hub.vercel.app/)
 
-> 💻 CLONE PROJECT NAME⭐  --> ✨FAMOUS FOOTWEAR💫
-Footwear Website Clone
-This collaborative project involves creating a clone of a footwear website using the Chakra UI library for the user interface, MongoDB for the database, Express for the backend, and React for the frontend. The website will be designed to showcase a variety of footwear products and enable users to browse and purchase items.
+![ShopGIF](https://media.giphy.com/media/F6ZC06fX688qk/giphy.gif)
 
-Project Overview
-The project requires a team effort, with each member contributing their skills and expertise in their respective areas. The Chakra UI library will be used to create a visually appealing and user-friendly interface for the website, while MongoDB will be used to store and manage the product data.
+> Famous Footwear is part of Caleres Inc. – a diverse portfolio of global footwear brands dedicated to helping every person find the perfect pair of shoes. With a legacy of over 130 years of craftsmanship and passion for fit, Caleres continues their mission of inspiring people to feel good… feet first.
 
-Express will serve as the backend framework, providing RESTful API endpoints for the frontend to interact with. React will be used to develop the frontend, allowing for dynamic updates and real-time user interactions.
+---
 
-Project Goals
-The main goals of this project are to:
+## 🔗 Collaborators Profile Links✨
 
-Create a functional and visually appealing footwear website clone.
-Implement secure and reliable payment and checkout systems.
-Allow users to browse and purchase footwear products.
-Enable users to create accounts and manage their profiles.
-Implement search and filter functionality for the products.
-How to Contribute
-This project is open to contributions from anyone interested in participating. If you'd like to contribute, please follow these steps:
+| Collaborators                 | Github                                                                                                                                    | Linkedin                                                                                                                                                            | Portfolio                                                                                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pallavi Jain (Team Lead)      | [![github](https://img.shields.io/badge/github-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pallavijainy/) | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pallavi-jain-64442a23a/)  | [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://pallavijainy.github.io/) |
+| Sarfraj Ahmad Raza (Member 1) | [![github](https://img.shields.io/badge/github-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sarfraj0304)   | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sarfrajahmadraza/)        | [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://sarfraj0304.github.io/)  |
+| Kaushik Kumar (Member 2)      | [![github](https://img.shields.io/badge/github-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kaush101)      | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaushik-kumar-545149253/) | [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://kaush101.github.io/)     |
+| Ujjawal Kumar (Member 3)      | [![github](https://img.shields.io/badge/github-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ujjawal0203)   | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ujjawal-kumar-086691237/) | [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ujjawal0203.github.io/)  |
+| Rajat Kaswan (Member 4)       | [![github](https://img.shields.io/badge/github-1DA1F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rajato1209)    | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rajat-kaswan-8a829a110/)  | [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rajato1209.github.io/)   |
 
-Fork the repository to your own account.
-Clone the forked repository to your local machine.
-Install the necessary dependencies by running npm install.
-Create a new branch for your changes by running git checkout -b branch-name.
-Make your changes and commit them with descriptive commit messages.
-Push your changes to your forked repository.
-Submit a pull request to the original repository with a description of your changes.
-Conclusion
-Overall, this project presents an exciting opportunity for collaboration and learning, as the team works together to build a functional and engaging footwear website clone. By working together and contributing our skills and expertise, we can create a platform that users can trust for their footwear needs.
+<br>
 
+💻Unique Project Name & logo :- ShoeLand🚗
 
+![CRuise (1)-modified](https://user-images.githubusercontent.com/112841168/222075752-5f62c6bb-ffa9-4f5f-a870-ab28367d3aba.png)
 
+---
 
+## 💫Tech-Stack->
 
-  <h4>Homepage</h4>
- ![Screenshot (836)](https://user-images.githubusercontent.com/107476738/221494412-839eaf83-1675-4837-8a39-3fb7b96a633d.png)
+- #### For Frontend :-
 
+  - `HTML5`
+  - `CSS3`
+     - `JavaScript `
+  - `ReactJS`
+     - `ES6 `
 
-  <p>Footer of the website</p>
- 
- 
- 
- ![Screenshot (833)](https://user-images.githubusercontent.com/107476738/221493347-82b8120d-b589-4145-b7c5-3db3a1f6270d.png)
+- #### For Backend :-
 
- 
- 
-  <P>Login form</p>
- 
- ![Screenshot (834)](https://user-images.githubusercontent.com/107476738/221493376-fcca3648-d22b-4e23-bcb1-7f1057584010.png)
+  - `NodeJS`
+  - `ExpressJS`
+    - `MongoDB `
 
- 
-  <p>We have an admin panel in our website</P>
- 
- 
- 
- 
- ![Screenshot (835)](https://user-images.githubusercontent.com/107476738/221493394-65ef2b9b-ea64-430e-bbf0-f564ebee4ad8.png)
+- #### For deploy database :-
 
- 
-  <p>Sign-up form</p>
- 
- 
- 
- 
- ![Screenshot (837)](https://user-images.githubusercontent.com/107476738/221494444-794c503b-d9bc-4be5-a7d9-4462c19e589c.png)
+  - `cyclic `
 
- 
-  <p>women category</p>
- 
- 
- 
- ![Screenshot (838)](https://user-images.githubusercontent.com/107476738/221494527-35197a27-0e3c-44c6-ba45-6a4dbc5b00dc.png)
+- #### For Styling :-
 
-  <p>Men category</p>
-  ![Screenshot (839)](https://user-images.githubusercontent.com/107476738/221494596-1457dcd9-c042-45e4-bdd1-9636dc588e9a.png)
+  - `Chakra UI `
 
- 
-  <hr>
-  <h4>Profile Page</h4>
-  
-<h2>Team Members :</h2>
-  <li><a href="https://github.com/pallavijainy">
-Pallavi Jain</a></li>
-  <li><a href="">Sarfaraj Ahmad Raza</a></li>
-  <li><a href="">
-Kaushik</a></li>
-  <li><a href="">Rajat kaswan</a></li>
-  <li><a href="">Ujjawal kumar</a></li>
- <hr><hr>
-  
+- #### For live Project : -
+  - `Vercel`
+
+![ShopGIF](https://media.giphy.com/media/ejcoQeKAnFab6/giphy.gif)
+
+---
+
+## Features ✨:-
+
+---
+
+| Serial No | Feature                                                                           |
+| --------- | --------------------------------------------------------------------------------- |
+| 1         | User signup, User Login, Admin Login                                              |
+| 2         | Products Page with Filter by different Category ,Pagination, Sort Functionalities |
+| 3         | Dynamic SinglePage & payment feature                                              |
+| 4         | Dynamic cart page using userId                                                    |
+| 5         | Admin Login & Dashboard Page                                                      |
+| 6         | My Account & My Orders Page                                                       |
+
+---
+
+# Package.json(Dependency)✨:-
+
+| Serial No | Backend      | Frontend                     |
+| --------- | ------------ | ---------------------------- |
+| 1         | bcrypt       | Chakra-ui, mui/material      |
+| 2         | mongoose     | React Router dom             |
+| 3         | cors         | react-icons, chakra-ui/icons |
+| 4         | dotenv       | axios                        |
+| 5         | express      | React                        |
+| 6         | jsonwebtoken | slick-carousel, react-slick  |
+
+---
+
+## Flow
+
+```mermaid
+graph TD;
+    App-->HomePage
+    HomePage-->SignUpPage;
+    HomePage-->loginPage;
+    HomePage-->adminLoginPage
+      SignUpPage-->loginPage;
+       loginPage-->HomePage;
+       HomePage --> CategoryPage
+       CategoryPage-->SingleProdPage
+       SingleProdPage-->CartPage
+       CartPage -->Payment
+       MensPage-->SinglePage
+       SinglePage --> CartPage
+       CartPage-->PaymentPage
+       HomePage --> AdminLogin
+       AdminLogin-->AdminDeshboard
+       AdminLogin -->Listings
+       AdminLogin -->Orders
+       AdminLogin -->Users
+       AdminLogin -->Profile
+
+```
+
+---
+
+## Screenshots 📷
+
+---
+
+# HomePage
+
+![Screenshot (832)](https://user-images.githubusercontent.com/112841168/222078034-900eb17e-d919-4434-a5f2-2a0ab7f66b4b.png)
+
+# Signup | Login
+
+![loginShoeland](https://user-images.githubusercontent.com/112841168/222078830-5c542e7f-7839-45d7-912d-2a275972af94.png)
+
+# Product Page
+
+![kidSHoeland](https://user-images.githubusercontent.com/112841168/222079404-d1e9298c-9438-4a1d-a430-5269da99b6e6.png)
+
+# SinglePage
+
+![SinglePage](https://user-images.githubusercontent.com/112841168/222079907-46142af7-7413-470c-9449-d140256ffcd3.png)
+
+# Payment
+
+![payment](https://user-images.githubusercontent.com/112841168/222081109-35c28696-b1a0-408a-84bb-0d823c3ee42c.png)
+
+# My Account
+
+![MyProfile](https://user-images.githubusercontent.com/112841168/222081104-9cb505ba-16c6-4c09-936b-eea82bc07868.png)
+
+![MyOrders](https://user-images.githubusercontent.com/112841168/222081099-4a80ff2c-cf14-4fa8-9d3b-a026f5aea68a.png)
+
+# Admin
+
+![AdminDash](https://user-images.githubusercontent.com/112841168/222081680-bf9f88c4-501b-434c-ba0a-6c78b04c185b.png)
+
+![listingAdmin](https://user-images.githubusercontent.com/112841168/222081120-116891c9-6c0a-4145-9cfa-af2c3eab083c.png)
+
+![AdminShoeland](https://user-images.githubusercontent.com/112841168/222081114-bf16471a-6eb9-4f62-a432-f9a13647d153.png)
+
+---
+
+<h1 align="center">✨Thank You✨</h1>

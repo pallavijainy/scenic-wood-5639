@@ -14,18 +14,18 @@ export default function WomenCard({
     <Center py={12}>
       <RouterLink to={`/product/${id}`}>
         <Box
-          role={"group"}
+          // role={"group"}
           p={6}
-          w={"full"}
+          height={"320px"}
           // boxShadow={'2xl'}
           rounded={"lg"}
-          pos={"relative"}
+          // pos={"relative"}
           boxShadow={"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"}
         >
-          <Box rounded={"lg"} pos={"relative"} height={"150px"}>
-            <Image rounded={"lg"} width={"80%"} src={image} />
+          <Box rounded={"lg"}>
+            <Image rounded={"lg"} width={"100%"} src={image} />
           </Box>
-          <div style={{ background: "white" }}>
+          <Box style={{ background: "white" }}>
             <Stack pt={10}>
               <Text
                 noOfLines={3}
@@ -62,7 +62,7 @@ export default function WomenCard({
                 </Text>
               </Stack>
             </Stack>
-          </div>
+          </Box>
         </Box>
       </RouterLink>
     </Center>
