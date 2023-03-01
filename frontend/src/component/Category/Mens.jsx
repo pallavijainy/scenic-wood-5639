@@ -16,6 +16,7 @@ import {
   AccordionIcon,
   GridItem,
   Divider,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
@@ -97,11 +98,11 @@ const Mens = () => {
   return (
     <>
       <Navbar />
-      <Box>
-        <Flex>
+      <Box p={2}>
+        <Flex direction={{ base: "column", md: "row" }}>
           {/* ---------------------------------------------------- */}
 
-          <Box w="35%" p={10}>
+          <Box w={{ base: "100%", md: "35%" }} p={5}>
             <Heading color="gray">Men's Shoes</Heading>
             <Text marginTop="10px">Shoes/Mens</Text>
 
@@ -305,7 +306,10 @@ const Mens = () => {
             {/* -------------------------------- */}
           </Box>
           {/* --------------------------------------------------------- */}
-          <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+          <SimpleGrid
+            columns={{ base: 2, md: 3, lg: 4 }}
+            spacing={{ base: 7, md: 4 }}
+          >
             {/* mapping product */}
             {data?.length > 0 &&
               data
@@ -322,7 +326,7 @@ const Mens = () => {
                     />
                   </GridItem>
                 ))}
-          </Grid>
+          </SimpleGrid>
         </Flex>
         <Box id="paginate" textAlign={"center"}>
           <Pagination
@@ -331,7 +335,6 @@ const Mens = () => {
             onChange={(value) => setPage(value)}
           />
         </Box>
-        <Box>{/* footer-------------- */}</Box>
       </Box>
       <Footer />
     </>
