@@ -24,7 +24,7 @@
 
 <br>
 
-💻Unique Project Name & logo :- ShoeLand🚗
+💻Unique Project Name & logo :- ShoeLand
 
 ![CRuise (1)-modified](https://user-images.githubusercontent.com/112841168/222075752-5f62c6bb-ffa9-4f5f-a870-ab28367d3aba.png)
 
