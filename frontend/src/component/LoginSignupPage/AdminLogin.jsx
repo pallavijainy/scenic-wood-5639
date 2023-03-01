@@ -79,7 +79,7 @@ const AdminLogin = () => {
                   <Input
                     focusBorderColor="#002E6E"
                     borderColor={"#002E6E"}
-                    placeholder="Enter @gmail.com"
+                    placeholder="sarfraj.shoeland@gmail.com"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -91,7 +91,7 @@ const AdminLogin = () => {
                   <Input
                     focusBorderColor="#002E6E"
                     borderColor={"#002E6E"}
-                    placeholder="Enter pass ***"
+                    placeholder="Enter pass (sam)"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
