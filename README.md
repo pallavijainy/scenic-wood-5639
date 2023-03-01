@@ -1,7 +1,7 @@
 > 💻 CLONED PROJECT NAME⭐ ====>>>> ✨Famous Footwear💫
 > <br>
 
-[![Backend Repo Link](https://img.shields.io/badge/Backend_Repo_Link-0A66C2?style=for-the-badge&logo=github&logoColor=#FF7139)](https://github.com/shikhu51197/backendcruise)
+[![Backend Repo Link](https://img.shields.io/badge/Backend_Repo_Link-0A66C2?style=for-the-badge&logo=github&logoColor=#FF7139)](https://github.com/pallavijainy/unit-6-project-backend-deploy)
 [![Deploy to Cyclic](https://img.shields.io/badge/Deployed_Cyclic_Link-0A66C2?style=for-the-badge&logo=ko-fi&logoColor=white)](https://good-rose-kingfisher-tam.cyclic.app/)
 
 ## [![Deployed App Vercel Link](https://img.shields.io/badge/Deployed_App_Vercel_Link-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://shoe-land-hub.vercel.app/)
