@@ -106,8 +106,8 @@ const Navbar = () => {
         </Drawer>
 
         {/* //draweer */}
-        <Box width={{base:"100%",md:"auto"}}>
-          <Box display={"flex"}  justifyContent="space-between" mt={"20px"} >
+        <Box width={{ base: "100%", md: "auto" }} p={2}>
+          <Box display={"flex"} justifyContent="space-between">
             <Box display={"flex"} justifyContent="space-between">
               <InputGroup display={{ base: "none", md: "flex" }}>
                 <Input
@@ -125,7 +125,6 @@ const Navbar = () => {
                     key={size}
                     backgroundColor="black"
                     color={"white"}
-                    
                   >
                     {<HamburgerIcon />}
                   </Button>
