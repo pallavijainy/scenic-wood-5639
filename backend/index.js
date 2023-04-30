@@ -9,8 +9,11 @@ const { cartRouter } = require("./Routes/CartRoutes")
 
 const app = express()
 app.use(express.json())
-
-app.use(cors())
+var corsOptions = {
+  origin: 'https://shoe-land-hub.vercel.app',
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions))
 
 
 app.use("/user",userRouter)
